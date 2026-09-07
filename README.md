@@ -19,7 +19,7 @@ synthetic benign alerts (`B001`–`B004`) so that the verdict is testable.
 ## 1. Setup
 
 ```bash
-git clone <REPO_URL> && cd soc-triage-agent
+git clone https://github.com/prempagare07/soc-triage-agent && cd soc-triage-agent
 python -m venv .venv && source .venv/bin/activate      # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
