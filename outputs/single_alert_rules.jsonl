@@ -1,0 +1,1 @@
+{"alert_id": "A006", "verdict": "malicious", "tactic": "Credential Access", "severity": "critical", "action": "escalate_tier2", "evidence": [2, 7, 8], "analyst_note": "Rule match for Credential Access: indicators ['lsass'] in events [2, 7, 8].", "label_tactic": "Credential Access", "label_verdict": "malicious", "tactic_correct": true, "verdict_correct": true}

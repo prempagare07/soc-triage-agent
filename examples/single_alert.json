@@ -1,0 +1,61 @@
+{
+ "alert_id": "A006",
+ "source_file": "CA_sysmon_hashdump_cmd_meterpreter.evtx",
+ "host": "WIN-LAB",
+ "events": [
+  {
+   "event_id": 10,
+   "TargetImage": "C:\\Windows\\System32\\smss.exe",
+   "SourceImage": "\\\\VBOXSVR\\HTools\\voice_mail.msg.exe",
+   "GrantedAccess": "0x001f1fff"
+  },
+  {
+   "event_id": 10,
+   "TargetImage": "C:\\Windows\\system32\\csrss.exe",
+   "SourceImage": "\\\\VBOXSVR\\HTools\\voice_mail.msg.exe",
+   "GrantedAccess": "0x001f1fff"
+  },
+  {
+   "event_id": 8,
+   "TargetImage": "C:\\Windows\\System32\\lsass.exe",
+   "SourceImage": "\\\\VBOXSVR\\HTools\\voice_mail.msg.exe"
+  },
+  {
+   "event_id": 10,
+   "TargetImage": "C:\\Windows\\system32\\csrss.exe",
+   "SourceImage": "\\\\VBOXSVR\\HTools\\voice_mail.msg.exe",
+   "GrantedAccess": "0x001f1fff"
+  },
+  {
+   "event_id": 10,
+   "TargetImage": "C:\\Windows\\system32\\wininit.exe",
+   "SourceImage": "\\\\VBOXSVR\\HTools\\voice_mail.msg.exe",
+   "GrantedAccess": "0x001f1fff"
+  },
+  {
+   "event_id": 10,
+   "TargetImage": "C:\\Windows\\system32\\winlogon.exe",
+   "SourceImage": "\\\\VBOXSVR\\HTools\\voice_mail.msg.exe",
+   "GrantedAccess": "0x001f1fff"
+  },
+  {
+   "event_id": 10,
+   "TargetImage": "C:\\Windows\\system32\\services.exe",
+   "SourceImage": "\\\\VBOXSVR\\HTools\\voice_mail.msg.exe",
+   "GrantedAccess": "0x001f1fff"
+  },
+  {
+   "event_id": 10,
+   "TargetImage": "C:\\Windows\\system32\\lsass.exe",
+   "SourceImage": "\\\\VBOXSVR\\HTools\\voice_mail.msg.exe",
+   "GrantedAccess": "0x001f1fff"
+  },
+  {
+   "event_id": 8,
+   "TargetImage": "C:\\Windows\\System32\\lsass.exe",
+   "SourceImage": "\\\\VBOXSVR\\HTools\\voice_mail.msg.exe"
+  }
+ ],
+ "label_tactic": "Credential Access",
+ "label_verdict": "malicious"
+}

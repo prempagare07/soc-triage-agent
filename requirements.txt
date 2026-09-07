@@ -1,0 +1,4 @@
+openai>=1.40,<2
+pytest>=8
+# only needed to rebuild examples/alerts.jsonl from raw .evtx files:
+python-evtx>=0.8

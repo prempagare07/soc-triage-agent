@@ -1,0 +1,33 @@
+[A001] malicious critical Lateral Movement      -> escalate_tier2 ✗ (expected Command and Control)
+[A002] malicious high     Command and Control   -> escalate_tier2 ✓
+[A003] benign    info     Benign                -> close          ✗ (expected Command and Control)
+[A004] malicious critical Credential Access     -> escalate_tier2 ✓
+[A005] malicious critical Lateral Movement      -> escalate_tier2 ✗ (expected Credential Access)
+[A006] malicious critical Credential Access     -> escalate_tier2 ✓
+[A007] malicious critical Lateral Movement      -> escalate_tier2 ✗ (expected Defense Evasion)
+[A008] malicious high     Command and Control   -> escalate_tier2 ✗ (expected Defense Evasion)
+[A009] malicious high     Persistence           -> escalate_tier2 ✗ (expected Defense Evasion)
+[A010] benign    info     Benign                -> close          ✗ (expected Discovery)
+[A011] benign    info     Benign                -> close          ✗ (expected Discovery)
+[A012] benign    info     Benign                -> close          ✗ (expected Discovery)
+[A013] malicious medium   Execution             -> investigate    ✓
+[A014] malicious medium   Execution             -> investigate    ✓
+[A015] malicious medium   Execution             -> investigate    ✓
+[A016] benign    info     Benign                -> close          ✗ (expected Lateral Movement)
+[A017] malicious critical Lateral Movement      -> escalate_tier2 ✓
+[A018] malicious low      Discovery             -> monitor        ✗ (expected Lateral Movement)
+[A019] malicious high     Persistence           -> escalate_tier2 ✓
+[A020] malicious high     Persistence           -> escalate_tier2 ✓
+[A021] malicious medium   Execution             -> investigate    ✗ (expected Persistence)
+[A022] malicious high     Privilege Escalation  -> escalate_tier2 ✓
+[A023] malicious high     Privilege Escalation  -> escalate_tier2 ✓
+[A024] malicious high     Privilege Escalation  -> escalate_tier2 ✓
+[B001] benign    info     Benign                -> close          ✓
+[B002] benign    info     Benign                -> close          ✓
+[B003] benign    info     Benign                -> close          ✓
+[B004] benign    info     Benign                -> close          ✓
+
+mode=rules  alerts=28  time=0.0s
+tactic accuracy  = 16/28 = 57.1%
+verdict accuracy = 23/28 = 82.1%   missed attacks (false negatives) = 5
+wrote outputs/alerts_rules.jsonl
