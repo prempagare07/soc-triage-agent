@@ -70,7 +70,7 @@ examples/              inputs   ·  outputs/  results  ·  tests/  pytest
 ```
 
 ## 8. Known limitations
-Rule baseline: 57% tactic accuracy and 5 missed attacks on the 28-alert set — Discovery tooling
+Rule baseline: 57% tactic accuracy and 5 missed attacks on the 28-alert set, Discovery tooling
 (BloodHound, PsLoggedOn) and PowerShell-based lateral movement produce no keyword hits.
 Both baselines see only the events in the alert; no host context, no threat-intel lookup, no
 ability to pull more logs, and the note is not verified against the cited evidence.
