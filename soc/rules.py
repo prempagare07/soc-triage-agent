@@ -1,6 +1,7 @@
 """Indicator-based rule baseline. No API key. Floor the LLM/agent must beat."""
 import json
 from .schema import finalize
+from .sanitize import strip_alert
 
 INDICATORS = {
     "Credential Access": ["lsass", "sekurlsa", "mimikatz", "hashdump", "samlib", "ntds.dit", "0x1010", "0x1fffff", "logonpasswords", "zerologon", "anonymous logon"],
@@ -15,6 +16,7 @@ INDICATORS = {
 
 
 def classify(alert: dict) -> dict:
+    alert = strip_alert(alert)
     scores, hits = {}, {}
     for i, ev in enumerate(alert["events"]):
         blob = json.dumps(ev).lower()

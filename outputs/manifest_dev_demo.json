@@ -1,0 +1,303 @@
+{
+  "manifest_version": 1,
+  "created_utc": "2026-10-04T23:54:20.130104+00:00",
+  "purpose": "dev_demo",
+  "held_out_frozen": false,
+  "approval_note": "Hashing does not approve selection or labels; approval is a separate prerequisite.",
+  "split_path": "/Users/praveen/Desktop/1st Sem/CSE 598 Agentic AI/Capstone/soc-triage-agent/examples/alerts.jsonl",
+  "split_sha256": "f4fe76b73de02ad87be2b03023a4ca4c48d68f911d1edc192387d8672dd88672",
+  "corpus_path": "/Users/praveen/Desktop/1st Sem/CSE 598 Agentic AI/Capstone/EVTX-ATTACK-SAMPLES",
+  "corpus": {
+    "commit": "4ceed2f4706daf601c212a8f91c113dd85349a2c",
+    "dirty": false,
+    "status": "",
+    "explanation": null
+  },
+  "line_hash_convention": "Exact stored UTF-8 JSONL line bytes, including LF/CRLF when present; final unterminated line has no added newline.",
+  "source_resolution": "Exact relative path; bare filename must be unique across the entire corpus. No folder-label fallback.",
+  "alert_count": 28,
+  "evtx_capture_count": 24,
+  "synthetic_count": 4,
+  "alerts": [
+    {
+      "alert_id": "A001",
+      "line_number": 1,
+      "line_sha256": "5c81cc387ad6a45adea8ea227da773aaf1089928aaec922ed09ddaf0e41b52e9",
+      "source_file": "DE_RDP_Tunnel_5156.evtx",
+      "capture_path": "Command and Control/DE_RDP_Tunnel_5156.evtx",
+      "capture_sha256": "25853cab2d474dd52159d45e8c7b139c27b55767be558447ccbc6f494daec786",
+      "source_kind": "evtx",
+      "provenance_note": null
+    },
+    {
+      "alert_id": "A002",
+      "line_number": 2,
+      "line_sha256": "0e7bd6a33843ca2543ef1db403e2a124812b4bcb3014454a9ca97ac045979b23",
+      "source_file": "tunna_iis_rdp_smb_tunneling_sysmon_3.evtx",
+      "capture_path": "Command and Control/tunna_iis_rdp_smb_tunneling_sysmon_3.evtx",
+      "capture_sha256": "d7e75b35f9db32c91dc0d066ee935b382253fb56659f19c05833c964f8217469",
+      "source_kind": "evtx",
+      "provenance_note": null
+    },
+    {
+      "alert_id": "A003",
+      "line_number": 3,
+      "line_sha256": "f2dc532aec20e5f24b27f8a11bbaf2ebeacff30665f95938ddfc8883a5900903",
+      "source_file": "DE_sysmon-3-rdp-tun.evtx",
+      "capture_path": "Command and Control/DE_sysmon-3-rdp-tun.evtx",
+      "capture_sha256": "1d1eb55d1b7c785db26e19b0d50b9eb4a7928671e4edeb82ea5182cb834c874a",
+      "source_kind": "evtx",
+      "provenance_note": null
+    },
+    {
+      "alert_id": "A004",
+      "line_number": 4,
+      "line_sha256": "4f1c74e1459c9ac6b9d21c63de1e26feaf067fa623a71a2779e557fe989aa21d",
+      "source_file": "sysmon_2x10_lsass_with_different_pid_RtlCreateProcessReflection.evtx",
+      "capture_path": "Credential Access/sysmon_2x10_lsass_with_different_pid_RtlCreateProcessReflection.evtx",
+      "capture_sha256": "7d160c1b636f8eb3642e9c2c15c941c136d9ecbf19116b18b19f981324d44e00",
+      "source_kind": "evtx",
+      "provenance_note": null
+    },
+    {
+      "alert_id": "A005",
+      "line_number": 5,
+      "line_sha256": "40af69d1319cbf79769f4c80cb84b55ac92dc823c89e8fbe1a4f12d4d9c8e455",
+      "source_file": "Zerologon_VoidSec_CVE-2020-1472_4626_LT3_Anonym_follwedby_4742_DC_Anony_DC.evtx",
+      "capture_path": "Credential Access/Zerologon_VoidSec_CVE-2020-1472_4626_LT3_Anonym_follwedby_4742_DC_Anony_DC.evtx",
+      "capture_sha256": "7ea57911a3afea3777e503e69d30d91b635201df3e6f7f5bbffb1495791064e6",
+      "source_kind": "evtx",
+      "provenance_note": null
+    },
+    {
+      "alert_id": "A006",
+      "line_number": 6,
+      "line_sha256": "1c8248ce2a633327db515de51981c72f288e93dbc4dead6a1e913d35b9512206",
+      "source_file": "CA_sysmon_hashdump_cmd_meterpreter.evtx",
+      "capture_path": "Credential Access/CA_sysmon_hashdump_cmd_meterpreter.evtx",
+      "capture_sha256": "897206ca4c3c427753fde880970048494cd5a99be9aaba6154b4e3ac499e24c9",
+      "source_kind": "evtx",
+      "provenance_note": null
+    },
+    {
+      "alert_id": "A007",
+      "line_number": 7,
+      "line_sha256": "66756153c53ef8a0e02a2840390ebc81ae77490c98f7f0ac9cbdd2e01b722cfa",
+      "source_file": "DE_suspicious_remote_eventlog_svc_access_5145.evtx",
+      "capture_path": "Defense Evasion/DE_suspicious_remote_eventlog_svc_access_5145.evtx",
+      "capture_sha256": "bd9b7712b67b16515f70fd5168142aca1f4cb88cdc1f51c08cf838e317cfdf59",
+      "source_kind": "evtx",
+      "provenance_note": null
+    },
+    {
+      "alert_id": "A008",
+      "line_number": 8,
+      "line_sha256": "ed017fc48094311fc238b733005c1a1ca70572e6875a5f527ceb1ccb30a78373",
+      "source_file": "sysmon_13_rdp_settings_tampering.evtx",
+      "capture_path": "Defense Evasion/sysmon_13_rdp_settings_tampering.evtx",
+      "capture_sha256": "1a877ee743da4f3183e19f30f9d864f9c86bd119fb4c47fa849af5be04985944",
+      "source_kind": "evtx",
+      "provenance_note": null
+    },
+    {
+      "alert_id": "A009",
+      "line_number": 9,
+      "line_sha256": "da5c03cc7a791909a902b90daf15a1df61cbc2b32c1cbcf13f71ca30c57811ba",
+      "source_file": "Sysmon 7 dllhijack_cdpsshims_CDPSvc.evtx",
+      "capture_path": "Defense Evasion/Sysmon 7 dllhijack_cdpsshims_CDPSvc.evtx",
+      "capture_sha256": "95b499a8478cce0fa8eb579c236a5216c1ba8dff8d4b98f751b2d52edba67400",
+      "source_kind": "evtx",
+      "provenance_note": null
+    },
+    {
+      "alert_id": "A010",
+      "line_number": 10,
+      "line_sha256": "2aa574ae9c94e91f9570aa65a8e997bc07d79e7f4b03fb55082165328e12890e",
+      "source_file": "discovery_psloggedon.evtx",
+      "capture_path": "Discovery/discovery_psloggedon.evtx",
+      "capture_sha256": "aa2f3ad059952502d159ead3225a6dac6f2903d76f2ce8f503933deb46af7f07",
+      "source_kind": "evtx",
+      "provenance_note": null
+    },
+    {
+      "alert_id": "A011",
+      "line_number": 11,
+      "line_sha256": "a8355056acddfc761dc31130f4b26a81298c4e5dcc2ca4e30122c5d0a14c73aa",
+      "source_file": "discovery_bloodhound.evtx",
+      "capture_path": "Discovery/discovery_bloodhound.evtx",
+      "capture_sha256": "34f153b6384a6842fe4c635ec224f7551aef2c69b89267715413fd7d00690eb0",
+      "source_kind": "evtx",
+      "provenance_note": null
+    },
+    {
+      "alert_id": "A012",
+      "line_number": 12,
+      "line_sha256": "4dd62cc15729aa8ba9e3f428e1506c3e5581c820fb7cf761348fb8bb9090468a",
+      "source_file": "discovery_sysmon_3_Invoke_UserHunter_SourceMachine.evtx",
+      "capture_path": "Discovery/discovery_sysmon_3_Invoke_UserHunter_SourceMachine.evtx",
+      "capture_sha256": "a743d37d41d7b88e85ff11baaa2050739fd68703a53ac94cc06df4a28a59ede4",
+      "source_kind": "evtx",
+      "provenance_note": null
+    },
+    {
+      "alert_id": "A013",
+      "line_number": 13,
+      "line_sha256": "838dfc83c7fd8961f5f33f6e4f81a8613110a597ea1a8a3a921a3b70634ae33d",
+      "source_file": "sysmon_lolbin_bohops_vshadow_exec.evtx",
+      "capture_path": "Execution/sysmon_lolbin_bohops_vshadow_exec.evtx",
+      "capture_sha256": "9cabd9accd1cad037ef7408bfddd9639f793665b73634833722b8cd842485fed",
+      "source_kind": "evtx",
+      "provenance_note": null
+    },
+    {
+      "alert_id": "A014",
+      "line_number": 14,
+      "line_sha256": "c1baaf8de9327380e32d2fa272b1b8536f2d28eed73bdc8404b08c38e82673c3",
+      "source_file": "exec_sysmon_1_lolbin_pcalua.evtx",
+      "capture_path": "Execution/exec_sysmon_1_lolbin_pcalua.evtx",
+      "capture_sha256": "3d99ad191360bb22739ce0cbb87dc4d3646f9084d2e6f042fb570f39b0f97418",
+      "source_kind": "evtx",
+      "provenance_note": null
+    },
+    {
+      "alert_id": "A015",
+      "line_number": 15,
+      "line_sha256": "b66bb5f0fc952da7810a20c9aae4cf372971426aa95681ea3cec294b3352086d",
+      "source_file": "exec_sysmon_1_11_lolbin_rundll32_openurl_FileProtocolHandler.evtx",
+      "capture_path": "Execution/exec_sysmon_1_11_lolbin_rundll32_openurl_FileProtocolHandler.evtx",
+      "capture_sha256": "11150ee64363501f5f5ca7ab359e696a6a7bb51a1c76f5fb182c38682a5e7a07",
+      "source_kind": "evtx",
+      "provenance_note": null
+    },
+    {
+      "alert_id": "A016",
+      "line_number": 16,
+      "line_sha256": "8e4e5b01ae985093cbc280b848a0cc483623102f7b607ce8d2229dba039281fa",
+      "source_file": "LM_sysmon_remote_task_src_powershell.evtx",
+      "capture_path": "Lateral Movement/LM_sysmon_remote_task_src_powershell.evtx",
+      "capture_sha256": "3b047a264a341faa16e33af4cbf4097f6db3aec75e5c87082f7b9551a3cc0e5b",
+      "source_kind": "evtx",
+      "provenance_note": null
+    },
+    {
+      "alert_id": "A017",
+      "line_number": 17,
+      "line_sha256": "808b39cf1b927908cdc3e1b414f4c96d50ff5f1914765a617a673e9b1cfbc1dd",
+      "source_file": "ImpersonateUser-via local Pass The Hash Sysmon and Security.evtx",
+      "capture_path": "Lateral Movement/ImpersonateUser-via local Pass The Hash Sysmon and Security.evtx",
+      "capture_sha256": "b3cdcbad24144417123becbc62d73d7954e832657d92f3a6b63e7b61291afede",
+      "source_kind": "evtx",
+      "provenance_note": null
+    },
+    {
+      "alert_id": "A018",
+      "line_number": 18,
+      "line_sha256": "5cbc1166be3928337bc42a97e1cf861a62e36325aeffda07d5513c8b0c0aec2e",
+      "source_file": "powercat_revShell_sysmon_1_3.evtx",
+      "capture_path": "Lateral Movement/powercat_revShell_sysmon_1_3.evtx",
+      "capture_sha256": "914d90705f1f94e7cff9b8d074e9ed0fab4d35449bf1b18d9f37ea6afd3e84df",
+      "source_kind": "evtx",
+      "provenance_note": null
+    },
+    {
+      "alert_id": "A019",
+      "line_number": 19,
+      "line_sha256": "9acfa81216db6649b0bf7fd14315ac7d75c1bfcafa2ee03c250a08697f94faa1",
+      "source_file": "persist_turla_outlook_backdoor_comhijack.evtx",
+      "capture_path": "Persistence/persist_turla_outlook_backdoor_comhijack.evtx",
+      "capture_sha256": "1a066ced716a9580e28662dbfdc60f4446818281c387f4c7bc1acdd742186f1a",
+      "source_kind": "evtx",
+      "provenance_note": null
+    },
+    {
+      "alert_id": "A020",
+      "line_number": 20,
+      "line_sha256": "e0c397ec18feba992bb4ebd1db7326f1e988b773b35fc2df7e64e69693f1ad0f",
+      "source_file": "persistence_sysmon_11_13_1_shime_appfix.evtx",
+      "capture_path": "Persistence/persistence_sysmon_11_13_1_shime_appfix.evtx",
+      "capture_sha256": "799420511f35300d3a071ca2c047d2edd49324d24544214a8124babe3fee9f90",
+      "source_kind": "evtx",
+      "provenance_note": null
+    },
+    {
+      "alert_id": "A021",
+      "line_number": 21,
+      "line_sha256": "f2c02eaecbec567982c3803c1964fefa9f1289b8983a0a4f87cd383f797b3a92",
+      "source_file": "persist_valid_account_guest_rid_hijack.evtx",
+      "capture_path": "Persistence/persist_valid_account_guest_rid_hijack.evtx",
+      "capture_sha256": "5f482d8f769d13b4d90cdbfb114924fe3890e78eb1d0a619219e88a99a6f0f6e",
+      "source_kind": "evtx",
+      "provenance_note": null
+    },
+    {
+      "alert_id": "A022",
+      "line_number": 22,
+      "line_sha256": "6e72c176e9bf3f38834cd82a812aa7e049a3389eeb04d41ada0dae9bc7ad79b8",
+      "source_file": "Sysmon_UACME_22.evtx",
+      "capture_path": "Privilege Escalation/Sysmon_UACME_22.evtx",
+      "capture_sha256": "45f90c35f977592fa8a5fd5205e73fade980d633bae219dfaeb65de8a27ba18c",
+      "source_kind": "evtx",
+      "provenance_note": null
+    },
+    {
+      "alert_id": "A023",
+      "line_number": 23,
+      "line_sha256": "b58776d98306665f035bdacd7ef8633a6fdddde7a335947a97a5192521e286f7",
+      "source_file": "Sysmon_UACME_53.evtx",
+      "capture_path": "Privilege Escalation/Sysmon_UACME_53.evtx",
+      "capture_sha256": "3a6f512f47e00da769d1076fe0367c15f3f787a79cdc8909b74e04f002d3e0f9",
+      "source_kind": "evtx",
+      "provenance_note": null
+    },
+    {
+      "alert_id": "A024",
+      "line_number": 24,
+      "line_sha256": "0b826ed275bb6c5512457110c67ae3d2ebb037ecab2c2f9a1b5666eaa7267ef2",
+      "source_file": "Sysmon_UACME_33.evtx",
+      "capture_path": "Privilege Escalation/Sysmon_UACME_33.evtx",
+      "capture_sha256": "369fe7264d8d343659fb8ef0cbf9a9cc2dfff06958e2dd173dfb7ecb8d9093fd",
+      "source_kind": "evtx",
+      "provenance_note": null
+    },
+    {
+      "alert_id": "B001",
+      "line_number": 25,
+      "line_sha256": "3b80a0cbb052a5fc253a9617945f25c5d90d8baa72db7d59c5bd2e6f57a0cb17",
+      "source_file": "synthetic_benign_office.json",
+      "capture_path": null,
+      "capture_sha256": null,
+      "source_kind": "synthetic_benign",
+      "provenance_note": "Synthetic example; no real benign EVTX capture exists."
+    },
+    {
+      "alert_id": "B002",
+      "line_number": 26,
+      "line_sha256": "9adff25fc4d634bc8edc57597bf3c19c39b3122edbc82f5dd99fbfe28de12cb3",
+      "source_file": "synthetic_benign_update.json",
+      "capture_path": null,
+      "capture_sha256": null,
+      "source_kind": "synthetic_benign",
+      "provenance_note": "Synthetic example; no real benign EVTX capture exists."
+    },
+    {
+      "alert_id": "B003",
+      "line_number": 27,
+      "line_sha256": "81a0df80d9ffec3c50b1dabc8ed9d0515d1da7dea39ec14667bb854c78ea9138",
+      "source_file": "synthetic_benign_admin.json",
+      "capture_path": null,
+      "capture_sha256": null,
+      "source_kind": "synthetic_benign",
+      "provenance_note": "Synthetic example; no real benign EVTX capture exists."
+    },
+    {
+      "alert_id": "B004",
+      "line_number": 28,
+      "line_sha256": "6f2bebfb291a9de1d3ce8d33879cb7f5ca1c368cf4fc12a0de512f6d9daa065b",
+      "source_file": "synthetic_benign_dev.json",
+      "capture_path": null,
+      "capture_sha256": null,
+      "source_kind": "synthetic_benign",
+      "provenance_note": "Synthetic example; no real benign EVTX capture exists."
+    }
+  ]
+}

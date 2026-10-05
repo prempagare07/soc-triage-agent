@@ -1,0 +1,2 @@
+# Optional dependency for the original --mode llm baseline.
+openai>=1.40,<2

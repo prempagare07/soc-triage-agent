@@ -14,27 +14,56 @@ synthetic benign alerts (`B001`–`B004`) so that the verdict is testable.
 | Mode    | What it is                                              | Needs API key |
 |---------|---------------------------------------------------------|---------------|
 | `rules` | indicator/keyword matcher over the events (floor)       | No            |
+| `codex` | isolated classification using Codex CLI and ChatGPT login | No          |
 | `llm`   | single-call `gpt-4o-mini`, JSON output, evidence cited  | Yes           |
 
 ## 1. Setup
 
 ```bash
 git clone https://github.com/prempagare07/soc-triage-agent && cd soc-triage-agent
-python -m venv .venv && source .venv/bin/activate      # Windows: .venv\Scripts\activate
+python3 -m venv .venv && source .venv/bin/activate      # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 Python 3.10+. `python-evtx` is only needed to rebuild the dataset; the built dataset is committed.
 
 ## 2. Keys / environment
 Only `--mode llm` needs `OPENAI_API_KEY` (`export OPENAI_API_KEY=sk-...` or copy `.env.example`).
+Install its optional dependency with `python -m pip install -r requirements-openai.txt`.
+For Codex, install the Codex CLI and run `codex login` with your ChatGPT account.
+The adapter forces ChatGPT authentication and consumes your subscription allowance.
 
 ## 3. Run
 ```bash
 python run_baseline.py --input examples/alerts.jsonl --mode rules    # no key, <1 s
+python run_baseline.py --input examples/alerts.jsonl --mode codex --model gpt-6.1-sol --reasoning-effort medium
 python run_baseline.py --input examples/alerts.jsonl --mode llm      # ~28 API calls, ~$0.03
 python run_baseline.py --input examples/single_alert.json --mode rules
 python -m pytest -q tests
 ```
+
+Choose a model available to your Codex account. Codex mode requires an explicit
+`--model`; the example is not an entitlement check. Use `--timeout 180` to set the
+per-alert timeout, or `--no-cache` for fresh calls. Successful responses are cached
+in `outputs/codex_cache/` by request, configuration, CLI version, and adapter hash.
+Each alert starts a fresh isolated session with shell, web search, apps, plugins,
+and agent delegation disabled. User config and project instructions are excluded;
+tool activity in CLI events causes rejection. This is a controlled CLI baseline,
+not the original GPT-4o-mini API experiment. Codex still supplies its own runtime
+context, so the two execution environments are not identical.
+
+Rules and Codex runs write `run_meta_<input>_<mode>.json`, per-mode metrics,
+and `m1_metrics.md` alongside the output. When both default-named output files
+exist in the same directory, they also write `m1_per_alert.csv`. Run both against
+the same input and keep the saved runs together. Failures count as incorrect in
+accuracy denominators, are recorded explicitly, and produce exit status 1.
+Metadata includes versions, hashes, configuration, per-alert usage and cache hits.
+Token totals exclude cache hits and remain null when events lack usage fields.
+API dollar cost, resolved model and unsupported sampling fields are null for Codex.
+Inspect records before citing results; subscription allowance is not API billing.
+Existing output files and reports are copied into `outputs/history/<UTC timestamp>/`
+before replacement. Raw successful Codex JSON is retained in per-alert metadata
+even with `--no-cache`. Input and output hashes gate combined reports and CSVs.
+See `docs/m1_baseline_status.md` for the live-run status and terminal commands.
 
 ## 4. Input / output
 - **Input:** `examples/alerts.jsonl` — one alert per line: `alert_id`, `source_file`, `host`,
