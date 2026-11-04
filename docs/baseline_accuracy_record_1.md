@@ -1,6 +1,37 @@
 # Baseline accuracy record
 
+Current reporting terminology: **stakeholder baseline accuracy** refers to
+the historical GPT-4o-mini figures below: verdict 27/28 (96.4%) and tactic
+13/28 (46.4%). **Best observed Codex accuracy** refers separately to the
+user-selected run in [record 2](baseline_accuracy_record_2.md): verdict
+24/28 (85.7%) and tactic 17/28 (60.7%). These are distinct references, not
+a verified paired comparison. The original historical measurement command
+and prediction artifacts remain unavailable; see Historical API figures
+below and [baseline_reference.json](baseline_reference.json). Record 2
+contains the exact command and saved evidence for the Codex measurement.
+
+Latest rerun status and stable evidence are in
+[record 3](baseline_accuracy_record_3.md), including an overlapping run
+that replaced shared output files. Earlier figures below are historical.
+
+Historical status: the pending-Codex statements below are superseded by
+[the completed xhigh baseline record](baseline_accuracy_record_2.md).
+The fresh Codex run achieved 24/28 verdict accuracy (85.7%) and 17/28 tactic
+accuracy (60.7%), using the exact commands recorded in that new note.
+
 Recorded: 2026-11-04.
+
+Current requested Codex configuration: **gpt-6.1-sol / xhigh**, explicitly
+selected by the user for the new full run. Its fresh xhigh preflight was
+blocked before inference by the app sandbox; full-run accuracy is pending.
+The medium-effort smoke described below is historical, not the requested
+configuration for the new run.
+
+Rerun update: rules were freshly measured again on 2026-11-04 with the
+same results below. Prior artifacts were preserved under
+`outputs/history/20261104T213333948877Z/`. Codex preflight with CLI 0.166.0
+failed before inference due to app-sandbox startup restrictions; no new
+Codex model accuracy was measured. See [rerun status](baseline_rerun_2026-11-04.md).
 
 | Baseline | Verdict accuracy | Tactic accuracy | Evidence status |
 |---|---:|---:|---|

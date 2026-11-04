@@ -72,9 +72,16 @@ class Classifier:
                               "stdin": "host and indexed events only",
                               "output": "JSON schema + final response file",
                               "removed_environment_keys": ["OPENAI_API_KEY", "CODEX_API_KEY"]}
-        self.last_metadata = {}
+        self.reset_metadata()
+
+    def reset_metadata(self):
+        """Start a new alert before any operation that can reject its input."""
+        self.last_metadata = {"request_sha256": None, "cache_hit": False, "retries": 0,
+                              "attempted": False, "usage": None,
+                              "actual_model": None, "effective_effort": None}
 
     def classify(self, alert):
+        self.reset_metadata()
         alert = strip_alert(alert)
         events = [{**ev, "index": i} for i, ev in enumerate(alert["events"])]
         payload = {"host": alert["host"], "events": events}
@@ -82,9 +89,7 @@ class Classifier:
                    "configuration": self.configuration, "cli_version": self.version,
                    "code_sha256": code_hashes()}
         key = digest(request)
-        self.last_metadata = {"request_sha256": key, "cache_hit": False, "retries": 0,
-                              "attempted": False,
-                              "usage": None, "actual_model": None, "effective_effort": None}
+        self.last_metadata["request_sha256"] = key
         cache = self.cache_dir / f"{key}.json" if self.cache_dir else None
         if cache and cache.exists():
             saved = json.loads(cache.read_text())

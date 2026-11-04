@@ -28,4 +28,4 @@ Misses and under-escalations describe successful predictions only; failures are 
 |---|---|
 | escalate_tier2 | 1 |
 
-Command: `/Users/praveen/Desktop/1st Sem/CSE 598 Agentic AI/Capstone/soc-triage-agent/.venv/bin/python3 run_baseline.py --input examples/single_alert.json --mode codex --model gpt-6.1-sol --reasoning-effort medium --timeout 180 --no-cache --output outputs/smoke/single_alert_codex.jsonl`
+Command: `/Users/praveen/Desktop/1st Sem/CSE 598 Agentic AI/Capstone/Milestone 1/soc-triage-agent/.venv/bin/python run_baseline.py --input examples/single_alert.json --mode codex --model gpt-6.1-sol --reasoning-effort xhigh --timeout 180 --no-cache --output outputs/smoke/single_alert_codex.jsonl`

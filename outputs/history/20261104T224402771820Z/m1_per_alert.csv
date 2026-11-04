@@ -1,0 +1,29 @@
+alert_id,true_tactic,rules_tactic,rules_correct,rules_action,rules_under_escalation,rules_status,codex_tactic,codex_correct,codex_action,codex_under_escalation,codex_status
+A001,Command and Control,Lateral Movement,False,escalate_tier2,False,success,Benign,False,close,True,success
+A002,Command and Control,Command and Control,True,escalate_tier2,False,success,Command and Control,True,escalate_tier2,False,success
+A003,Command and Control,Benign,False,close,True,success,Benign,False,close,True,success
+A004,Credential Access,Credential Access,True,escalate_tier2,False,success,Credential Access,True,escalate_tier2,False,success
+A005,Credential Access,Lateral Movement,False,escalate_tier2,False,success,Benign,False,close,True,success
+A006,Credential Access,Credential Access,True,escalate_tier2,False,success,Credential Access,True,escalate_tier2,False,success
+A007,Defense Evasion,Lateral Movement,False,escalate_tier2,False,success,Benign,False,close,True,success
+A008,Defense Evasion,Command and Control,False,escalate_tier2,False,success,Persistence,False,escalate_tier2,False,success
+A009,Defense Evasion,Persistence,False,escalate_tier2,False,success,Privilege Escalation,False,escalate_tier2,False,success
+A010,Discovery,Benign,False,close,True,success,Benign,False,close,True,success
+A011,Discovery,Benign,False,close,True,success,Benign,False,close,True,success
+A012,Discovery,Benign,False,close,True,success,Discovery,True,monitor,False,success
+A013,Execution,Execution,True,investigate,False,success,Execution,True,investigate,False,success
+A014,Execution,Execution,True,investigate,False,success,Defense Evasion,False,investigate,False,success
+A015,Execution,Execution,True,investigate,False,success,Defense Evasion,False,investigate,False,success
+A016,Lateral Movement,Benign,False,close,True,success,Lateral Movement,True,escalate_tier2,False,success
+A017,Lateral Movement,Lateral Movement,True,escalate_tier2,False,success,Privilege Escalation,False,escalate_tier2,False,success
+A018,Lateral Movement,Discovery,False,monitor,True,success,Discovery,False,monitor,True,success
+A019,Persistence,Persistence,True,escalate_tier2,False,success,Persistence,True,escalate_tier2,False,success
+A020,Persistence,Persistence,True,escalate_tier2,False,success,Privilege Escalation,False,escalate_tier2,False,success
+A021,Persistence,Execution,False,investigate,True,success,Privilege Escalation,False,escalate_tier2,False,success
+A022,Privilege Escalation,Privilege Escalation,True,escalate_tier2,False,success,Privilege Escalation,True,escalate_tier2,False,success
+A023,Privilege Escalation,Privilege Escalation,True,escalate_tier2,False,success,Privilege Escalation,True,escalate_tier2,False,success
+A024,Privilege Escalation,Privilege Escalation,True,escalate_tier2,False,success,Privilege Escalation,True,escalate_tier2,False,success
+B001,Benign,Benign,True,close,False,success,Benign,True,close,False,success
+B002,Benign,Benign,True,close,False,success,Benign,True,close,False,success
+B003,Benign,Benign,True,close,False,success,Benign,True,close,False,success
+B004,Benign,Benign,True,close,False,success,Benign,True,close,False,success

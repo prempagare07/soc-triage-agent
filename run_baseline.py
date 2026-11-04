@@ -85,7 +85,9 @@ def main():
     if len({alert["alert_id"] for alert in alerts}) != len(alerts):
         sys.exit("Duplicate alert IDs; refusing ambiguous evaluation")
     metadata_path = out.parent / f"run_meta_{inp.stem}_{a.mode}.json"
+    metrics_path = out.parent / f"metrics_{inp.stem}_{a.mode}.md"
     archive = preserve_outputs([out, metadata_path,
+                                metrics_path,
                                 out.parent / f"m1_{a.mode}_metrics.md",
                                 out.parent / "m1_metrics.md", out.parent / "m1_per_alert.csv"], out.parent)
     if archive:
@@ -96,6 +98,8 @@ def main():
     n_t = c_t = n_v = c_v = 0
     missed_attacks = 0
     for al in alerts:
+        if adapter:
+            adapter.reset_metadata()
         try:
             r = clf(strip_alert(al)); schema.validate(r)
         except Exception as exc:
@@ -167,21 +171,28 @@ def main():
                          "attempted_alerts": sum(r.get("attempted", False) for r in per_alert_metadata),
                          "temperature": None, "seed": None, "system_fingerprint": None,
                          "unavailable_fields": "CLI events do not reliably expose resolved model, effective effort, temperature, seed, fingerprint or dollar cost; missing token fields are null."})
-        metadata_path.write_text(json.dumps(meta, indent=2) + "\n")
         saved_records = [json.loads(line) for line in out.read_text().splitlines() if line.strip()]
-        report = write_metrics(alerts, saved_records, a.mode, out.parent / f"m1_{a.mode}_metrics.md")
+        report = write_metrics(alerts, saved_records, a.mode, metrics_path)
         report += "\n\nCommand: `" + " ".join([sys.executable, *sys.argv]) + "`\n"
+        metrics_path.write_text(report)
+        meta.update(metrics_path=str(metrics_path.resolve()),
+                    metrics_sha256=hashlib.sha256(metrics_path.read_bytes()).hexdigest())
+        metadata_path.write_text(json.dumps(meta, indent=2) + "\n")
+        # Keep the Milestone 1 convenience filename; comparisons use the
+        # input-specific report and its recorded hash, never this alias.
         (out.parent / f"m1_{a.mode}_metrics.md").write_text(report)
         # Include only reports whose metadata matches this input and saved output.
         reports = []
         for mode in ("rules", "codex"):
             other_meta = out.parent / f"run_meta_{inp.stem}_{mode}.json"
-            other_report = out.parent / f"m1_{mode}_metrics.md"
-            if other_meta.exists() and other_report.exists():
+            if other_meta.exists():
                 other = json.loads(other_meta.read_text())
+                other_report = Path(other["metrics_path"]) if other.get("metrics_path") else None
                 other_output = Path(other["output_path"]) if "output_path" in other else None
                 if (other.get("input_sha256") == meta["input_sha256"] and other_output and
-                        other_output.exists() and hashlib.sha256(other_output.read_bytes()).hexdigest() == other.get("output_sha256")):
+                        other_output.exists() and hashlib.sha256(other_output.read_bytes()).hexdigest() == other.get("output_sha256") and
+                        other_report and other_report.exists() and
+                        hashlib.sha256(other_report.read_bytes()).hexdigest() == other.get("metrics_sha256")):
                     reports.append(other_report.read_text())
         (out.parent / "m1_metrics.md").write_text("\n\n".join(reports))
         write_comparison(alerts, out.parent, inp.stem)

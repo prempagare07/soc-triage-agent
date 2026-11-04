@@ -1,8 +1,8 @@
 {
-  "git_commit": "f7e443cdeb8f330a46ed70fd65a4be995ed6cd86",
+  "git_commit": "1f9d13e7708c7ed78ac4626af9ec8e9ea9a052c7",
   "worktree_dirty": true,
-  "started_at": "2026-10-04T23:10:36.091163+00:00",
-  "finished_at": "2026-10-04T23:10:44.842986+00:00",
+  "started_at": "2026-11-04T22:07:44.995056+00:00",
+  "finished_at": "2026-11-04T22:07:57.296625+00:00",
   "python_version": "3.14.7",
   "mode": "codex",
   "input_path": "examples/single_alert.json",
@@ -12,7 +12,7 @@
   "failed_alerts": 0,
   "retries": 0,
   "command": [
-    "/Users/praveen/Desktop/1st Sem/CSE 598 Agentic AI/Capstone/soc-triage-agent/.venv/bin/python3",
+    "/Users/praveen/Desktop/1st Sem/CSE 598 Agentic AI/Capstone/Milestone 1/soc-triage-agent/.venv/bin/python",
     "run_baseline.py",
     "--input",
     "examples/single_alert.json",
@@ -21,7 +21,7 @@
     "--model",
     "gpt-6.1-sol",
     "--reasoning-effort",
-    "medium",
+    "xhigh",
     "--timeout",
     "180",
     "--no-cache",
@@ -32,41 +32,41 @@
   "actual_model": null,
   "estimated_api_cost": null,
   "output_path": "outputs/smoke/single_alert_codex.jsonl",
-  "output_sha256": "5fad5c3ed6d89c2b27ef74b5d249246f9c78b4cece9a7e1758d90a5f3704b19f",
+  "output_sha256": "60134c43607072f8d9f1e8a50608c59a228973a32929c54824edc7667258a754",
   "code_sha256": {
-    "run_baseline.py": "aa279e6e211eea48386f0cf930ed6e7e8d63d29fb86791bb4758d1f2729a77f5",
-    "soc/rules.py": "7e0ec7462b32cc23cb08015af00f2541baca914c67206347abdebe9584d661aa",
+    "run_baseline.py": "72e82b6aa2034419109bc9f2dcd8ebbfa84f9b183e5eb14b4cb51a1dfaae8ed2",
+    "soc/rules.py": "15aac75cfa18488d30fa102bd06e5ae093ccedc9050db929444b9166d4fd4783",
     "soc/schema.py": "efe513c7aa9eb9daa3c182456cc9c5694c408c76978fa3041c88141431e5e59f",
-    "soc/sanitize.py": "1d6b8f204b3ba43ef1dfd24b80733524ade6c2fbc8451b300df470d6c4667421",
-    "soc/metrics.py": "8d20093558ef7fdfaa48e2c1153fb01bf5c0ad082541375869500da479edf120",
-    "soc/codex_cli.py": "c6c35fb76fceb26af9975de4e7fbf30bdb379387763a29dee0e6a77616ca1e1f",
-    "soc/llm.py": "a6f92aa1cedf2208fa635a7a2e3cff93230608dce03307b35138f58554e4726a"
+    "soc/sanitize.py": "0f30a272810222e4b3ef62b0f4aa252c51bbd0fa68eae8e6b9ac6d0e5d3f51d1",
+    "soc/metrics.py": "40d115c2e0531c26b8a97c3ffec8adcf92ac41eff5354e02b91f6c4677fcb1ec",
+    "soc/codex_cli.py": "2ffc2c40c2c6d6994feff26d86b18416428b5abbfd76f6baede5469564585f0a",
+    "soc/llm.py": "3b2056c25583349d7143455eee36c48576898a60da4b5cc889e310bdc7134ac4"
   },
   "authentication_type": "ChatGPT subscription (enforced)",
-  "requested_reasoning_effort": "medium",
+  "requested_reasoning_effort": "xhigh",
   "effective_reasoning_effort": null,
   "cache_hits": 0,
   "tokens": {
-    "input_tokens": 5745,
+    "input_tokens": 6545,
     "cached_input_tokens": 0,
-    "output_tokens": 134
+    "output_tokens": 357
   },
   "usage_source": "codex exec turn.completed usage",
   "billing_basis": "ChatGPT/Codex subscription allowance",
-  "previous_artifacts_archive": "outputs/smoke/history/20261004T231036085679Z",
+  "previous_artifacts_archive": "outputs/smoke/history/20261104T220744989274Z",
   "per_alert": [
     {
       "alert_id": "A006",
-      "request_sha256": "3d68aaf4a9296c902a9bfd7a8af44c3d987289cb946fc083788951560f390cd0",
+      "request_sha256": "bb4b217b3b60ee229f53962dea7afe2ac2e1132eb01babea3798f9a93c99b565",
       "cache_hit": false,
       "retries": 0,
       "attempted": true,
       "usage": {
-        "input_tokens": 5745,
+        "input_tokens": 6545,
         "cached_input_tokens": 0,
         "cache_write_input_tokens": 0,
-        "output_tokens": 134,
-        "reasoning_output_tokens": 45
+        "output_tokens": 357,
+        "reasoning_output_tokens": 270
       },
       "actual_model": null,
       "effective_effort": null,
@@ -100,7 +100,7 @@
         "-c",
         "features.skip_host_skill_discovery=true",
         "-c",
-        "model_reasoning_effort=\"medium\"",
+        "model_reasoning_effort=\"xhigh\"",
         "-c",
         "model_instructions_file=\"<isolated_directory>/instructions.txt\"",
         "--disable",
@@ -168,11 +168,11 @@
           "message": "Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`."
         }
       ],
-      "raw_response": "{\"verdict\":\"malicious\",\"tactic\":\"Credential Access\",\"evidence\":[2,7,8],\"analyst_note\":\"The share-hosted voice_mail.msg.exe obtained full access to LSASS (index 7) and created remote threads inside it (indices 2 and 8). This indicates suspicious process injection consistent with attempted credential theft; successful extraction is not confirmed.\"}",
+      "raw_response": "{\"verdict\":\"malicious\",\"tactic\":\"Credential Access\",\"evidence\":[2,7,8],\"analyst_note\":\"The share-hosted voice_mail.msg.exe requests full access to LSASS (7) and creates remote threads inside it (2, 8). This indicates malicious process injection consistent with attempted credential theft, although credential extraction is not directly shown.\"}",
       "status": "success"
     }
   ],
-  "codex_version": "codex-cli 0.160.0",
+  "codex_version": "codex-cli 0.166.0",
   "configuration": {
     "config": [
       "forced_login_method=\"chatgpt\"",
@@ -210,7 +210,7 @@
     "ignore_rules": true,
     "ephemeral": true,
     "model": "gpt-6.1-sol",
-    "reasoning_effort": "medium",
+    "reasoning_effort": "xhigh",
     "stdin": "host and indexed events only",
     "output": "JSON schema + final response file",
     "removed_environment_keys": [
@@ -221,7 +221,7 @@
   "timeout_seconds": 180.0,
   "prompt_sha256": "7cd8fdd5a05151a4bd629dc06f2fab2c637851f4b7f01e1efc0d20eaf7443183",
   "schema_sha256": "398288172d812d4d27e96552b3e4cc8d4f4d5cc1e3ed22a398129bb385148b9d",
-  "adapter_sha256": "c6c35fb76fceb26af9975de4e7fbf30bdb379387763a29dee0e6a77616ca1e1f",
+  "adapter_sha256": "2ffc2c40c2c6d6994feff26d86b18416428b5abbfd76f6baede5469564585f0a",
   "usage_includes_cache_hits": false,
   "usage_includes_failed_attempts": "Only when a failed attempt exposes usage; otherwise aggregate totals are null, not zero.",
   "cli_arguments": [
@@ -254,7 +254,7 @@
     "-c",
     "features.skip_host_skill_discovery=true",
     "-c",
-    "model_reasoning_effort=\"medium\"",
+    "model_reasoning_effort=\"xhigh\"",
     "-c",
     "model_instructions_file=\"<isolated_directory>/instructions.txt\"",
     "--disable",
@@ -305,5 +305,7 @@
   "temperature": null,
   "seed": null,
   "system_fingerprint": null,
-  "unavailable_fields": "CLI events do not reliably expose resolved model, effective effort, temperature, seed, fingerprint or dollar cost; missing token fields are null."
+  "unavailable_fields": "CLI events do not reliably expose resolved model, effective effort, temperature, seed, fingerprint or dollar cost; missing token fields are null.",
+  "metrics_path": "/Users/praveen/Desktop/1st Sem/CSE 598 Agentic AI/Capstone/Milestone 1/soc-triage-agent/outputs/smoke/metrics_single_alert_codex.md",
+  "metrics_sha256": "345f5b443e6cb5988debbf542b88250f433343ff49a8d7a661bcb4a6c18a9577"
 }

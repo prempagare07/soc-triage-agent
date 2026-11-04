@@ -204,7 +204,91 @@ def test_comparison_rejects_mismatched_input_and_modified_outputs(tmp_path):
     meta.write_text(json.dumps(data))
     write_comparison([alert], tmp_path, "alerts")
     assert (tmp_path / "m1_per_alert.csv").exists()
-    (tmp_path / "m1_per_alert.csv").unlink()
     (tmp_path / "alerts_codex.jsonl").write_text('{}\n')
     write_comparison([alert], tmp_path, "alerts")
     assert not (tmp_path / "m1_per_alert.csv").exists()
+
+
+@pytest.mark.parametrize("invalid", ["input_hash", "missing_output", "missing_metadata"])
+def test_invalid_comparison_removes_existing_csv(tmp_path, invalid):
+    import hashlib
+    from soc.metrics import write_comparison
+    for mode in ("rules", "codex"):
+        path = tmp_path / f"alerts_{mode}.jsonl"
+        path.write_text(json.dumps({"alert_id": "a", "tactic": "Benign", "action": "close"}) + "\n")
+        (tmp_path / f"run_meta_alerts_{mode}.json").write_text(json.dumps({
+            "input_sha256": "different" if invalid == "input_hash" and mode == "codex" else "same",
+            "output_sha256": hashlib.sha256(path.read_bytes()).hexdigest()}))
+    if invalid == "missing_output":
+        (tmp_path / "alerts_codex.jsonl").unlink()
+    elif invalid == "missing_metadata":
+        (tmp_path / "run_meta_alerts_codex.json").unlink()
+    comparison = tmp_path / "m1_per_alert.csv"
+    comparison.write_text("stale previous comparison\n")
+    write_comparison([{"alert_id": "a", "label_tactic": "Benign"}], tmp_path, "alerts")
+    assert not comparison.exists()
+
+
+def invoke_mocked_baseline(monkeypatch, source, mode, output):
+    import sys
+    import run_baseline
+    monkeypatch.setattr(run_baseline, "git", lambda *args: None)
+    args = ["run_baseline.py", "--input", str(source), "--mode", mode, "--output", str(output)]
+    if mode == "codex":
+        args += ["--model", "explicit-model", "--no-cache"]
+    monkeypatch.setattr(sys, "argv", args)
+    return run_baseline.main()
+
+
+def test_combined_report_binds_input_specific_metrics_and_checks_hash(monkeypatch, tmp_path):
+    mock_cli(monkeypatch)
+    a = tmp_path / "a.jsonl"
+    b = tmp_path / "b.jsonl"
+    alert = {"alert_id": "a", "host": "h", "events": [],
+             "label_tactic": "Benign", "label_verdict": "benign"}
+    a.write_text(json.dumps(alert) + "\n")
+    b.write_text(json.dumps({**alert, "events": [{"Image": "pcalua.exe"}]}) + "\n")
+    assert invoke_mocked_baseline(monkeypatch, a, "rules", tmp_path / "a_rules.jsonl") == 0
+    a_report = (tmp_path / "metrics_a_rules.md").read_text()
+    assert invoke_mocked_baseline(monkeypatch, b, "rules", tmp_path / "b_rules.jsonl") == 0
+    b_report = (tmp_path / "m1_rules_metrics.md").read_text()
+    assert "Tactic accuracy: 1/1" in a_report and "Tactic accuracy: 0/1" in b_report
+    assert invoke_mocked_baseline(monkeypatch, a, "codex", tmp_path / "a_codex.jsonl") == 0
+    combined = (tmp_path / "m1_metrics.md").read_text()
+    assert a_report in combined and b_report not in combined
+    # Matching predictions alone are insufficient if the report was edited.
+    (tmp_path / "metrics_a_rules.md").write_text(a_report + "tampered report\n")
+    assert invoke_mocked_baseline(monkeypatch, a, "codex", tmp_path / "a_codex.jsonl") == 0
+    combined = (tmp_path / "m1_metrics.md").read_text()
+    assert "# rules baseline metrics" not in combined
+    assert "# codex baseline metrics" in combined
+
+
+def test_rejected_alert_does_not_inherit_previous_metadata(monkeypatch, tmp_path):
+    calls = mock_cli(monkeypatch)
+    source = tmp_path / "alerts.jsonl"
+    first = {"alert_id": "a", "host": "h", "events": [],
+             "label_tactic": "Benign", "label_verdict": "benign"}
+    second = {**first, "alert_id": "b", "events": [{"label_tactic": "Execution"}]}
+    source.write_text("\n".join(map(json.dumps, (first, second))) + "\n")
+    assert invoke_mocked_baseline(monkeypatch, source, "codex", tmp_path / "alerts_codex.jsonl") == 1
+    metadata = json.loads((tmp_path / "run_meta_alerts_codex.json").read_text())
+    success, failure = metadata["per_alert"]
+    assert len(calls) == 1
+    assert success["request_sha256"] and success["raw_response"]
+    assert failure["request_sha256"] is None and failure["usage"] is None
+    assert not failure["attempted"] and not failure["cache_hit"]
+    assert "raw_response" not in failure
+    assert metadata["attempted_alerts"] == 1
+
+
+def test_direct_rejected_alert_resets_adapter_metadata(monkeypatch):
+    mock_cli(monkeypatch)
+    classifier = Classifier("explicit-model")
+    classifier.classify({"alert_id": "a", "host": "h", "events": []})
+    with pytest.raises(ValueError, match="Evaluation metadata"):
+        classifier.classify({"alert_id": "b", "host": "h", "events": [{"label_verdict": "benign"}]})
+    assert classifier.last_metadata["request_sha256"] is None
+    assert classifier.last_metadata["usage"] is None
+    assert not classifier.last_metadata["attempted"]
+    assert "raw_response" not in classifier.last_metadata

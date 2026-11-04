@@ -1,0 +1,43 @@
+{
+  "git_commit": "f7e443cdeb8f330a46ed70fd65a4be995ed6cd86",
+  "worktree_dirty": true,
+  "started_at": "2026-10-04T23:44:08.517867+00:00",
+  "finished_at": "2026-10-04T23:44:08.532978+00:00",
+  "python_version": "3.14.7",
+  "mode": "rules",
+  "input_path": "examples/alerts.jsonl",
+  "input_sha256": "f4fe76b73de02ad87be2b03023a4ca4c48d68f911d1edc192387d8672dd88672",
+  "alert_count": 28,
+  "successful_alerts": 28,
+  "failed_alerts": 0,
+  "retries": 0,
+  "command": [
+    "/Users/praveen/Desktop/1st Sem/CSE 598 Agentic AI/Capstone/soc-triage-agent/.venv/bin/python",
+    "run_baseline.py",
+    "--input",
+    "examples/alerts.jsonl",
+    "--mode",
+    "rules"
+  ],
+  "requested_model": null,
+  "actual_model": null,
+  "estimated_api_cost": 0,
+  "output_path": "outputs/alerts_rules.jsonl",
+  "output_sha256": "9c38f6e2147a335f19d1868c032ea93b0a8d921ced11299c5ab11b1e496521e2",
+  "code_sha256": {
+    "run_baseline.py": "aa279e6e211eea48386f0cf930ed6e7e8d63d29fb86791bb4758d1f2729a77f5",
+    "soc/rules.py": "15aac75cfa18488d30fa102bd06e5ae093ccedc9050db929444b9166d4fd4783",
+    "soc/schema.py": "efe513c7aa9eb9daa3c182456cc9c5694c408c76978fa3041c88141431e5e59f",
+    "soc/sanitize.py": "0f30a272810222e4b3ef62b0f4aa252c51bbd0fa68eae8e6b9ac6d0e5d3f51d1",
+    "soc/metrics.py": "8d20093558ef7fdfaa48e2c1153fb01bf5c0ad082541375869500da479edf120"
+  },
+  "authentication_type": "none (offline)",
+  "requested_reasoning_effort": null,
+  "effective_reasoning_effort": null,
+  "cache_hits": 0,
+  "tokens": null,
+  "usage_source": null,
+  "billing_basis": "offline; no model inference",
+  "previous_artifacts_archive": "outputs/history/20261004T234408513537Z",
+  "per_alert": []
+}

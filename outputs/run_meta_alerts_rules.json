@@ -1,8 +1,8 @@
 {
-  "git_commit": "f7e443cdeb8f330a46ed70fd65a4be995ed6cd86",
+  "git_commit": "1f9d13e7708c7ed78ac4626af9ec8e9ea9a052c7",
   "worktree_dirty": true,
-  "started_at": "2026-10-04T23:44:08.517867+00:00",
-  "finished_at": "2026-10-04T23:44:08.532978+00:00",
+  "started_at": "2026-11-04T21:33:33.952084+00:00",
+  "finished_at": "2026-11-04T21:33:33.966686+00:00",
   "python_version": "3.14.7",
   "mode": "rules",
   "input_path": "examples/alerts.jsonl",
@@ -12,7 +12,7 @@
   "failed_alerts": 0,
   "retries": 0,
   "command": [
-    "/Users/praveen/Desktop/1st Sem/CSE 598 Agentic AI/Capstone/soc-triage-agent/.venv/bin/python",
+    "/Users/praveen/Desktop/1st Sem/CSE 598 Agentic AI/Capstone/Milestone 1/soc-triage-agent/.venv/bin/python",
     "run_baseline.py",
     "--input",
     "examples/alerts.jsonl",
@@ -25,11 +25,11 @@
   "output_path": "outputs/alerts_rules.jsonl",
   "output_sha256": "9c38f6e2147a335f19d1868c032ea93b0a8d921ced11299c5ab11b1e496521e2",
   "code_sha256": {
-    "run_baseline.py": "aa279e6e211eea48386f0cf930ed6e7e8d63d29fb86791bb4758d1f2729a77f5",
+    "run_baseline.py": "72e82b6aa2034419109bc9f2dcd8ebbfa84f9b183e5eb14b4cb51a1dfaae8ed2",
     "soc/rules.py": "15aac75cfa18488d30fa102bd06e5ae093ccedc9050db929444b9166d4fd4783",
     "soc/schema.py": "efe513c7aa9eb9daa3c182456cc9c5694c408c76978fa3041c88141431e5e59f",
     "soc/sanitize.py": "0f30a272810222e4b3ef62b0f4aa252c51bbd0fa68eae8e6b9ac6d0e5d3f51d1",
-    "soc/metrics.py": "8d20093558ef7fdfaa48e2c1153fb01bf5c0ad082541375869500da479edf120"
+    "soc/metrics.py": "40d115c2e0531c26b8a97c3ffec8adcf92ac41eff5354e02b91f6c4677fcb1ec"
   },
   "authentication_type": "none (offline)",
   "requested_reasoning_effort": null,
@@ -38,6 +38,8 @@
   "tokens": null,
   "usage_source": null,
   "billing_basis": "offline; no model inference",
-  "previous_artifacts_archive": "outputs/history/20261004T234408513537Z",
-  "per_alert": []
+  "previous_artifacts_archive": "outputs/history/20261104T213333948877Z",
+  "per_alert": [],
+  "metrics_path": "/Users/praveen/Desktop/1st Sem/CSE 598 Agentic AI/Capstone/Milestone 1/soc-triage-agent/outputs/metrics_alerts_rules.md",
+  "metrics_sha256": "5a16dc3c6d1ba2488ea65514eed0b8310c85f1cc89d1b831ee81c7105a21603a"
 }

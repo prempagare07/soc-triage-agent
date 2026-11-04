@@ -64,6 +64,10 @@ def write_metrics(alerts, records, mode, output):
 
 
 def write_comparison(alerts, directory, stem):
+    # The runner archives this file before calling us. Never leave a prior
+    # comparison looking current when the new prerequisites are invalid.
+    comparison = directory / "m1_per_alert.csv"
+    comparison.unlink(missing_ok=True)
     paths = [directory / f"{stem}_{mode}.jsonl" for mode in ("rules", "codex")]
     if not all(p.exists() for p in paths):
         return
@@ -78,7 +82,7 @@ def write_comparison(alerts, directory, stem):
            for p, m in zip(paths, run_metadata)):
         return
     results = [{r["alert_id"]: r for r in map(json.loads, p.read_text().splitlines())} for p in paths]
-    with (directory / "m1_per_alert.csv").open("w", newline="") as handle:
+    with comparison.open("w", newline="") as handle:
         fields = ["alert_id", "true_tactic"] + [f"{mode}_{key}" for mode in ("rules", "codex")
                     for key in ("tactic", "correct", "action", "under_escalation", "status")]
         writer = csv.DictWriter(handle, fieldnames=fields)

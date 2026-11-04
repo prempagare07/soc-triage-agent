@@ -1,0 +1,22 @@
+{
+  "purpose": "Default reference for stakeholder baseline accuracy in reports; distinct from best observed Codex accuracy",
+  "model": "gpt-4o-mini",
+  "evidence_status": "Historical stakeholder/project figures, not independently reproduced or verified against original prediction files here",
+  "source_record": "docs/baseline_accuracy_record_1.md#historical-api-figures",
+  "reported_counts": {
+    "alerts": 28,
+    "verdict_correct": 27,
+    "tactic_correct": 13
+  },
+  "reported_percentages": {
+    "verdict_accuracy": 96.4,
+    "tactic_accuracy": 46.4
+  },
+  "percentage_convention": "Correct/28 multiplied by 100, rounded to one decimal place",
+  "original_measurement_command": null,
+  "prediction_artifacts": null,
+  "unavailable_provenance": "The original prediction artifacts and measurement command have not been established; do not invent them or present these as a fresh measurement",
+  "percentage_check_command": "python -c 'print(f\"Historical verdict: {27/28:.1%}; historical tactic: {13/28:.1%}\")'",
+  "best_codex_reference": "docs/best_accuracy_reference.json",
+  "reporting_policy": "Baseline accuracy means these historical stakeholder figures. Best observed Codex accuracy means the separate pinned best-accuracy reference. This reporting convention does not establish a paired evaluation or replace the requirement to measure comparison systems on identical held-out alerts."
+}

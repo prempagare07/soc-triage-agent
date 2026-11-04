@@ -1,5 +1,17 @@
 # Prompt 1 baseline status
 
+Subsequent rerun: see [record 3](baseline_accuracy_record_3.md) for the
+latest verified saved baseline and a concurrent-output replacement issue.
+The earlier completed-run figures below are historical.
+
+Latest status (2026-11-04): the complete Codex baseline now exists, requested
+as `gpt-6.1-sol` / xhigh. On the same 28 dev alerts, its verdict accuracy is
+24/28 (85.7%) and tactic accuracy is 17/28 (60.7%), with zero execution
+failures. Exact commands, matched-hash evidence and limitations are in
+[the completed baseline record](baseline_accuracy_record_2.md).
+Earlier pending-run and medium-smoke statements below describe historical
+work and are superseded by that record.
+
 Boundary update: see `label_leakage_guard.md`. Direct rules/API entry points
 now sanitize inputs, and the shared sanitizer rejects recognizable embedded
 evaluation metadata. The rules baseline was refreshed with unchanged

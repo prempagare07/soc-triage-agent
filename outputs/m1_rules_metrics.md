@@ -47,4 +47,4 @@ Misses and under-escalations describe successful predictions only; failures are 
 | investigate | 0 | 3 | 3 | 0 |
 | monitor | 3 | 0 | 0 | 0 |
 
-Command: `/Users/praveen/Desktop/1st Sem/CSE 598 Agentic AI/Capstone/soc-triage-agent/.venv/bin/python run_baseline.py --input examples/alerts.jsonl --mode rules`
+Command: `/Users/praveen/Desktop/1st Sem/CSE 598 Agentic AI/Capstone/Milestone 1/soc-triage-agent/.venv/bin/python run_baseline.py --input examples/alerts.jsonl --mode rules`

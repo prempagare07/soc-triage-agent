@@ -1,0 +1,30 @@
+{
+  "purpose": "User-selected best-observed Codex development accuracy; distinct from the stakeholder historical baseline; offline reporting only",
+  "selection_basis": "Explicit user selection after viewing repeated development-run results; not an unbiased aggregate or held-out evaluation",
+  "record_path": "docs/baseline_accuracy_record_2.md",
+  "requested_model": "gpt-6.1-sol",
+  "requested_reasoning_effort": "xhigh",
+  "input_sha256": "f4fe76b73de02ad87be2b03023a4ca4c48d68f911d1edc192387d8672dd88672",
+  "artifacts": {
+    "predictions": {
+      "path": "outputs/history/20261104T223457060411Z/alerts_codex.jsonl",
+      "sha256": "db5cb8b2c39c00e57d112412e1fb485a13cd102391e6858627f4e176cb224d46"
+    },
+    "metadata": {
+      "path": "outputs/history/20261104T223457060411Z/run_meta_alerts_codex.json",
+      "sha256": "697d5fbebd5ac7ac001261e922908cef32810cf80b081a62846b83418e5c3ff9"
+    },
+    "metrics": {
+      "path": "outputs/history/20261104T223457060411Z/metrics_alerts_codex.md",
+      "sha256": "f8d1987ae33cf9ada2c7a73ce3a55999dc40ca758ca4c3afd516e39c6c2c9dba"
+    }
+  },
+  "expected_counts": {
+    "alerts": 28,
+    "verdict_correct": 24,
+    "tactic_correct": 17,
+    "failures": 0
+  },
+  "original_measurement_command": ".venv/bin/python run_baseline.py --input examples/alerts.jsonl --mode codex --model gpt-6.1-sol --reasoning-effort xhigh --timeout 180 --no-cache",
+  "reporting_policy": "Use for best observed Codex accuracy questions, not stakeholder baseline accuracy. Verify archived artifact hashes before reporting. Do not make fresh model calls for an accuracy question. Explicit new-run or other-configuration requests remain separate measurements. Best refers to the user-selected saved Codex run, not superiority on every metric over all models."
+}
