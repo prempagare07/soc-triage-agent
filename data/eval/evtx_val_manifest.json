@@ -1,0 +1,123 @@
+{
+  "dataset": "evtx_val",
+  "seed": 20261004,
+  "cap": 15,
+  "note": "tuning split: never overlaps evtx_heldout",
+  "alerts": [
+    {
+      "alert_id": "V001",
+      "source": "Execution/sysmon_zipexec.evtx",
+      "sha256": "4d995c2a339d3c272afd4ac8cf01f009ca5358bafe3fa51889b28f86296cd894"
+    },
+    {
+      "alert_id": "V002",
+      "source": "Lateral Movement/LM_4624_mimikatz_sekurlsa_pth_source_machine.evtx",
+      "sha256": "bbfd87cacdd56a9135de1838666937cd6c74daba47b366bba0c11f95ce97f461"
+    },
+    {
+      "alert_id": "V003",
+      "source": "Lateral Movement/LM_ScheduledTask_ATSVC_target_host.evtx",
+      "sha256": "53999570b8edb7f909cb07165fecda1f29bf04e3462d13dc404e31f31a9ab932"
+    },
+    {
+      "alert_id": "V004",
+      "source": "Lateral Movement/LM_sysmon_3_12_13_1_SharpRDP.evtx",
+      "sha256": "2c0aa9ea79dd513dee70daf1aeb5cb8d1ca5bad36c96929cb0a61db001d0f41a"
+    },
+    {
+      "alert_id": "V005",
+      "source": "Lateral Movement/LM_sysmon_psexec_smb_meterpreter.evtx",
+      "sha256": "18ffdda9c24e593d6b1414b6e05c7f7a5dbffb8588a387c165431b61ab52d76f"
+    },
+    {
+      "alert_id": "V006",
+      "source": "Lateral Movement/LM_wmiexec_impacket_sysmon_whoami.evtx",
+      "sha256": "21b8852b2b386f4d3f6f0c8a7304de8e628bb43cfa23888ab317b95b784ffe59"
+    },
+    {
+      "alert_id": "V007",
+      "source": "Lateral Movement/sharprdp_sysmon_7_mstscax.dll.evtx",
+      "sha256": "e75cdf11d232a079606bd6fad30c0d13ccca98386268ef1fd1d76d6fc827e1b3"
+    },
+    {
+      "alert_id": "V008",
+      "source": "Lateral Movement/smbmap_upload_exec_sysmon.evtx",
+      "sha256": "21a69f9ea97e2a953c47fbb76a9a77682e128436c26ccf7445ae8012832e8def"
+    },
+    {
+      "alert_id": "V009",
+      "source": "Privilege Escalation/RogueWinRM.evtx",
+      "sha256": "9b650416ac195034dd0e22b7152de9326828c2587a4a52baf60ed83f2b4e9a7f"
+    },
+    {
+      "alert_id": "V010",
+      "source": "Privilege Escalation/Sysmon_13_1_UACBypass_SDCLTBypass.evtx",
+      "sha256": "343bf81c3dbf508432ba4b2eb2fceef7cb59653417d3e209ffb7cbd2fa485050"
+    },
+    {
+      "alert_id": "V011",
+      "source": "Privilege Escalation/Sysmon_UACME_23.evtx",
+      "sha256": "c742e7767e11e4810cbbe77f53d04e855241b85b1df30c954e9210e50b5ba772"
+    },
+    {
+      "alert_id": "V012",
+      "source": "Privilege Escalation/Sysmon_UACME_37_FileCreate.evtx",
+      "sha256": "0b3893de16d5b7bf94337a08706a0b158965ab9aa6e20a0dd968883f96d0e1db"
+    },
+    {
+      "alert_id": "V013",
+      "source": "Privilege Escalation/Sysmon_UACME_39.evtx",
+      "sha256": "85c32ce26cbd8bf03c44b26d4a913188b38890ed40b8ab855b1f5ccbed703b66"
+    },
+    {
+      "alert_id": "V014",
+      "source": "Privilege Escalation/UACME_59_Sysmon.evtx",
+      "sha256": "1de3775180143fd5d956bae48f572367534ae8c10f6ffbe98dd4b4e0e47e0fa1"
+    },
+    {
+      "alert_id": "V015",
+      "source": "Privilege Escalation/privesc_roguepotato_sysmon_17_18.evtx",
+      "sha256": "21bcc12aed93c390545c1b07005a681e1c9e9dbe5d47983c273518456855595d"
+    },
+    {
+      "alert_id": "V016",
+      "source": "Privilege Escalation/privesc_rotten_potato_from_webshell_metasploit_sysmon_1_8_3.evtx",
+      "sha256": "03d1d202bdf50f7290da06e816ddf9535705f90acebbb0ccae7d2e62dcbf6699"
+    },
+    {
+      "alert_id": "V017",
+      "source": "Privilege Escalation/privesc_spoolfool_mahdihtm_sysmon_1_11_7_13.evtx",
+      "sha256": "9457cdfd5159e9b25185352a66f9ec1d14cc84f1780ea282e47c5653c28fad58"
+    },
+    {
+      "alert_id": "V018",
+      "source": "Privilege Escalation/privesc_sysmon_cve_20201030_spooler.evtx",
+      "sha256": "c220b523b3b788bc593208622058bd54c634005b104aeaf5f177a35aea1e8312"
+    },
+    {
+      "alert_id": "V019",
+      "source": "Privilege Escalation/privesc_unquoted_svc_sysmon_1_11.evtx",
+      "sha256": "5b3bd618ff215254db994f223f1700082dbb1f339a651e1c89ae41d857edbcc2"
+    },
+    {
+      "alert_id": "V020",
+      "source": "Privilege Escalation/privexchange_dirkjan.evtx",
+      "sha256": "321c68c4f41b47c69f8cf050c572a27be77ee1818716c5d79d746d1c805901ad"
+    },
+    {
+      "alert_id": "V021",
+      "source": "Privilege Escalation/samaccount_spoofing_CVE-2021-42287_CVE-2021-42278_DC_securitylogs.evtx",
+      "sha256": "d3cf4940a0400a615e7e848a16de8d957bd12ccb99f7c9ce247b17a72a55d212"
+    },
+    {
+      "alert_id": "V022",
+      "source": "Privilege Escalation/security_4624_4673_token_manip.evtx",
+      "sha256": "2546b08851204db18c8f60722dcbb406356b323fbcd790774949e8a0168cc4e7"
+    },
+    {
+      "alert_id": "V023",
+      "source": "Privilege Escalation/sysmon_11_1_15_WScriptBypassUAC.evtx",
+      "sha256": "48f65d146e64c9c58a4774d03ba83aa120c307e52a0a1d21975fb225125abbff"
+    }
+  ]
+}

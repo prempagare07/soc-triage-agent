@@ -1,0 +1,227 @@
+{
+  "dataset": "benign",
+  "seed": 20261104,
+  "synthetic": true,
+  "alerts": [
+    {
+      "alert_id": "N001",
+      "source": "synthetic/office",
+      "group": "routine"
+    },
+    {
+      "alert_id": "N002",
+      "source": "synthetic/office",
+      "group": "routine"
+    },
+    {
+      "alert_id": "N003",
+      "source": "synthetic/browser",
+      "group": "routine"
+    },
+    {
+      "alert_id": "N004",
+      "source": "synthetic/browser",
+      "group": "routine"
+    },
+    {
+      "alert_id": "N005",
+      "source": "synthetic/teams",
+      "group": "routine"
+    },
+    {
+      "alert_id": "N006",
+      "source": "synthetic/teams",
+      "group": "routine"
+    },
+    {
+      "alert_id": "N007",
+      "source": "synthetic/windows_update",
+      "group": "routine"
+    },
+    {
+      "alert_id": "N008",
+      "source": "synthetic/windows_update",
+      "group": "routine"
+    },
+    {
+      "alert_id": "N009",
+      "source": "synthetic/defender_update",
+      "group": "routine"
+    },
+    {
+      "alert_id": "N010",
+      "source": "synthetic/defender_update",
+      "group": "routine"
+    },
+    {
+      "alert_id": "N011",
+      "source": "synthetic/dev_git",
+      "group": "routine"
+    },
+    {
+      "alert_id": "N012",
+      "source": "synthetic/dev_git",
+      "group": "routine"
+    },
+    {
+      "alert_id": "N013",
+      "source": "synthetic/zoom_install",
+      "group": "routine"
+    },
+    {
+      "alert_id": "N014",
+      "source": "synthetic/zoom_install",
+      "group": "routine"
+    },
+    {
+      "alert_id": "N015",
+      "source": "synthetic/acrobat",
+      "group": "routine"
+    },
+    {
+      "alert_id": "N016",
+      "source": "synthetic/acrobat",
+      "group": "routine"
+    },
+    {
+      "alert_id": "N017",
+      "source": "synthetic/interactive_logon",
+      "group": "routine"
+    },
+    {
+      "alert_id": "N018",
+      "source": "synthetic/interactive_logon",
+      "group": "routine"
+    },
+    {
+      "alert_id": "N019",
+      "source": "synthetic/excel_macro_free",
+      "group": "routine"
+    },
+    {
+      "alert_id": "N020",
+      "source": "synthetic/excel_macro_free",
+      "group": "routine"
+    },
+    {
+      "alert_id": "N021",
+      "source": "synthetic/slack",
+      "group": "routine"
+    },
+    {
+      "alert_id": "N022",
+      "source": "synthetic/slack",
+      "group": "routine"
+    },
+    {
+      "alert_id": "N023",
+      "source": "synthetic/defender_lsass",
+      "group": "hard_negative"
+    },
+    {
+      "alert_id": "N024",
+      "source": "synthetic/defender_lsass",
+      "group": "hard_negative"
+    },
+    {
+      "alert_id": "N025",
+      "source": "synthetic/sccm_inventory",
+      "group": "hard_negative"
+    },
+    {
+      "alert_id": "N026",
+      "source": "synthetic/sccm_inventory",
+      "group": "hard_negative"
+    },
+    {
+      "alert_id": "N027",
+      "source": "synthetic/logon_script",
+      "group": "hard_negative"
+    },
+    {
+      "alert_id": "N028",
+      "source": "synthetic/logon_script",
+      "group": "hard_negative"
+    },
+    {
+      "alert_id": "N029",
+      "source": "synthetic/onedrive_run_key",
+      "group": "hard_negative"
+    },
+    {
+      "alert_id": "N030",
+      "source": "synthetic/onedrive_run_key",
+      "group": "hard_negative"
+    },
+    {
+      "alert_id": "N031",
+      "source": "synthetic/google_update_task",
+      "group": "hard_negative"
+    },
+    {
+      "alert_id": "N032",
+      "source": "synthetic/google_update_task",
+      "group": "hard_negative"
+    },
+    {
+      "alert_id": "N033",
+      "source": "synthetic/msbuild_dev",
+      "group": "hard_negative"
+    },
+    {
+      "alert_id": "N034",
+      "source": "synthetic/msbuild_dev",
+      "group": "hard_negative"
+    },
+    {
+      "alert_id": "N035",
+      "source": "synthetic/certutil_hash",
+      "group": "hard_negative"
+    },
+    {
+      "alert_id": "N036",
+      "source": "synthetic/certutil_hash",
+      "group": "hard_negative"
+    },
+    {
+      "alert_id": "N037",
+      "source": "synthetic/backup_vss",
+      "group": "hard_negative"
+    },
+    {
+      "alert_id": "N038",
+      "source": "synthetic/backup_vss",
+      "group": "hard_negative"
+    },
+    {
+      "alert_id": "N039",
+      "source": "synthetic/procdump_own_app",
+      "group": "hard_negative"
+    },
+    {
+      "alert_id": "N040",
+      "source": "synthetic/procdump_own_app",
+      "group": "hard_negative"
+    },
+    {
+      "alert_id": "N041",
+      "source": "synthetic/printer_install",
+      "group": "hard_negative"
+    },
+    {
+      "alert_id": "N042",
+      "source": "synthetic/printer_install",
+      "group": "hard_negative"
+    },
+    {
+      "alert_id": "N043",
+      "source": "synthetic/log_export",
+      "group": "hard_negative"
+    },
+    {
+      "alert_id": "N044",
+      "source": "synthetic/log_export",
+      "group": "hard_negative"
+    }
+  ]
+}
