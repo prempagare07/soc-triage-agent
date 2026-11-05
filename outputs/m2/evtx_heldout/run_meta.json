@@ -1,0 +1,22 @@
+{
+  "dataset": "evtx_heldout",
+  "alerts": 81,
+  "model": "qwen2.5:7b",
+  "options": {
+    "temperature": 0,
+    "seed": 0,
+    "num_ctx": 16384
+  },
+  "budget": 8,
+  "systems": [
+    "rules",
+    "single_call",
+    "fixed_workflow",
+    "agent"
+  ],
+  "git_commit": "f7e443cdeb8f330a46ed70fd65a4be995ed6cd86",
+  "input_sha256": "aa22f6512c0732573493f47a123be234416095e0e3f684672778690f19292156",
+  "python": "3.13.9",
+  "finished_at": "2026-11-04T04:23:06.958080+00:00",
+  "command": "/Users/amatyakatyayan/Downloads/soc-m2/.venv/bin/python run_eval.py --dataset evtx_heldout"
+}

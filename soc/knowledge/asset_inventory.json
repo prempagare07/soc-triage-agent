@@ -1,0 +1,16 @@
+{
+  "note": "Invented host inventory for the mocked get_asset_context tool. Hosts are assigned to alerts by a hash of the alert id, so a role never says anything about the label.",
+  "hosts": {
+    "WIN-LAB": {"role": "user workstation", "criticality": "medium", "owner": "finance"},
+    "HOST-01": {"role": "domain controller", "criticality": "critical", "owner": "IT infrastructure"},
+    "HOST-02": {"role": "file server", "criticality": "high", "owner": "IT infrastructure"},
+    "HOST-03": {"role": "SQL database server", "criticality": "high", "owner": "finance apps"},
+    "HOST-04": {"role": "IT admin jump box", "criticality": "high", "owner": "IT operations"},
+    "HOST-05": {"role": "web server (DMZ)", "criticality": "high", "owner": "web team"},
+    "HOST-06": {"role": "user workstation", "criticality": "medium", "owner": "sales"},
+    "HOST-07": {"role": "user workstation", "criticality": "medium", "owner": "engineering"},
+    "HOST-08": {"role": "user workstation", "criticality": "low", "owner": "marketing"},
+    "HOST-09": {"role": "developer laptop", "criticality": "medium", "owner": "engineering"},
+    "HOST-10": {"role": "kiosk", "criticality": "low", "owner": "front desk"}
+  }
+}

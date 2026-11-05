@@ -1,0 +1,125 @@
+{
+  "dataset": "dev",
+  "alerts": [
+    {
+      "alert_id": "A001",
+      "source": "Command and Control/DE_RDP_Tunnel_5156.evtx",
+      "sha256": "25853cab2d474dd52159d45e8c7b139c27b55767be558447ccbc6f494daec786"
+    },
+    {
+      "alert_id": "A002",
+      "source": "Command and Control/tunna_iis_rdp_smb_tunneling_sysmon_3.evtx",
+      "sha256": "d7e75b35f9db32c91dc0d066ee935b382253fb56659f19c05833c964f8217469"
+    },
+    {
+      "alert_id": "A003",
+      "source": "Command and Control/DE_sysmon-3-rdp-tun.evtx",
+      "sha256": "1d1eb55d1b7c785db26e19b0d50b9eb4a7928671e4edeb82ea5182cb834c874a"
+    },
+    {
+      "alert_id": "A004",
+      "source": "Credential Access/sysmon_2x10_lsass_with_different_pid_RtlCreateProcessReflection.evtx",
+      "sha256": "7d160c1b636f8eb3642e9c2c15c941c136d9ecbf19116b18b19f981324d44e00"
+    },
+    {
+      "alert_id": "A005",
+      "source": "Credential Access/Zerologon_VoidSec_CVE-2020-1472_4626_LT3_Anonym_follwedby_4742_DC_Anony_DC.evtx",
+      "sha256": "7ea57911a3afea3777e503e69d30d91b635201df3e6f7f5bbffb1495791064e6"
+    },
+    {
+      "alert_id": "A006",
+      "source": "Credential Access/CA_sysmon_hashdump_cmd_meterpreter.evtx",
+      "sha256": "897206ca4c3c427753fde880970048494cd5a99be9aaba6154b4e3ac499e24c9"
+    },
+    {
+      "alert_id": "A007",
+      "source": "Defense Evasion/DE_suspicious_remote_eventlog_svc_access_5145.evtx",
+      "sha256": "bd9b7712b67b16515f70fd5168142aca1f4cb88cdc1f51c08cf838e317cfdf59"
+    },
+    {
+      "alert_id": "A008",
+      "source": "Defense Evasion/sysmon_13_rdp_settings_tampering.evtx",
+      "sha256": "1a877ee743da4f3183e19f30f9d864f9c86bd119fb4c47fa849af5be04985944"
+    },
+    {
+      "alert_id": "A009",
+      "source": "Defense Evasion/Sysmon 7 dllhijack_cdpsshims_CDPSvc.evtx",
+      "sha256": "95b499a8478cce0fa8eb579c236a5216c1ba8dff8d4b98f751b2d52edba67400"
+    },
+    {
+      "alert_id": "A010",
+      "source": "Discovery/discovery_psloggedon.evtx",
+      "sha256": "aa2f3ad059952502d159ead3225a6dac6f2903d76f2ce8f503933deb46af7f07"
+    },
+    {
+      "alert_id": "A011",
+      "source": "Discovery/discovery_bloodhound.evtx",
+      "sha256": "34f153b6384a6842fe4c635ec224f7551aef2c69b89267715413fd7d00690eb0"
+    },
+    {
+      "alert_id": "A012",
+      "source": "Discovery/discovery_sysmon_3_Invoke_UserHunter_SourceMachine.evtx",
+      "sha256": "a743d37d41d7b88e85ff11baaa2050739fd68703a53ac94cc06df4a28a59ede4"
+    },
+    {
+      "alert_id": "A013",
+      "source": "Execution/sysmon_lolbin_bohops_vshadow_exec.evtx",
+      "sha256": "9cabd9accd1cad037ef7408bfddd9639f793665b73634833722b8cd842485fed"
+    },
+    {
+      "alert_id": "A014",
+      "source": "Execution/exec_sysmon_1_lolbin_pcalua.evtx",
+      "sha256": "3d99ad191360bb22739ce0cbb87dc4d3646f9084d2e6f042fb570f39b0f97418"
+    },
+    {
+      "alert_id": "A015",
+      "source": "Execution/exec_sysmon_1_11_lolbin_rundll32_openurl_FileProtocolHandler.evtx",
+      "sha256": "11150ee64363501f5f5ca7ab359e696a6a7bb51a1c76f5fb182c38682a5e7a07"
+    },
+    {
+      "alert_id": "A016",
+      "source": "Lateral Movement/LM_sysmon_remote_task_src_powershell.evtx",
+      "sha256": "3b047a264a341faa16e33af4cbf4097f6db3aec75e5c87082f7b9551a3cc0e5b"
+    },
+    {
+      "alert_id": "A017",
+      "source": "Lateral Movement/ImpersonateUser-via local Pass The Hash Sysmon and Security.evtx",
+      "sha256": "b3cdcbad24144417123becbc62d73d7954e832657d92f3a6b63e7b61291afede"
+    },
+    {
+      "alert_id": "A018",
+      "source": "Lateral Movement/powercat_revShell_sysmon_1_3.evtx",
+      "sha256": "914d90705f1f94e7cff9b8d074e9ed0fab4d35449bf1b18d9f37ea6afd3e84df"
+    },
+    {
+      "alert_id": "A019",
+      "source": "Persistence/persist_turla_outlook_backdoor_comhijack.evtx",
+      "sha256": "1a066ced716a9580e28662dbfdc60f4446818281c387f4c7bc1acdd742186f1a"
+    },
+    {
+      "alert_id": "A020",
+      "source": "Persistence/persistence_sysmon_11_13_1_shime_appfix.evtx",
+      "sha256": "799420511f35300d3a071ca2c047d2edd49324d24544214a8124babe3fee9f90"
+    },
+    {
+      "alert_id": "A021",
+      "source": "Persistence/persist_valid_account_guest_rid_hijack.evtx",
+      "sha256": "5f482d8f769d13b4d90cdbfb114924fe3890e78eb1d0a619219e88a99a6f0f6e"
+    },
+    {
+      "alert_id": "A022",
+      "source": "Privilege Escalation/Sysmon_UACME_22.evtx",
+      "sha256": "45f90c35f977592fa8a5fd5205e73fade980d633bae219dfaeb65de8a27ba18c"
+    },
+    {
+      "alert_id": "A023",
+      "source": "Privilege Escalation/Sysmon_UACME_53.evtx",
+      "sha256": "3a6f512f47e00da769d1076fe0367c15f3f787a79cdc8909b74e04f002d3e0f9"
+    },
+    {
+      "alert_id": "A024",
+      "source": "Privilege Escalation/Sysmon_UACME_33.evtx",
+      "sha256": "369fe7264d8d343659fb8ef0cbf9a9cc2dfff06958e2dd173dfb7ecb8d9093fd"
+    }
+  ]
+}

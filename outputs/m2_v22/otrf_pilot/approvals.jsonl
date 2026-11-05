@@ -1,0 +1,5 @@
+{"time": "2026-11-05T01:35:56.092059+00:00", "alert_id": "O001", "host": "HOST-06", "action": "isolate_host", "approved": false, "mode": "non-interactive (auto-deny)", "result": "not isolated"}
+{"time": "2026-11-05T01:39:49.612657+00:00", "alert_id": "O003", "host": "HOST-03", "action": "isolate_host", "approved": false, "mode": "non-interactive (auto-deny)", "result": "not isolated"}
+{"time": "2026-11-05T02:14:39.476683+00:00", "alert_id": "O022", "host": "HOST-08", "action": "isolate_host", "approved": false, "mode": "non-interactive (auto-deny)", "result": "not isolated"}
+{"time": "2026-11-05T02:26:06.782929+00:00", "alert_id": "O029", "host": "HOST-02", "action": "isolate_host", "approved": false, "mode": "non-interactive (auto-deny)", "result": "not isolated"}
+{"time": "2026-11-05T02:56:02.647544+00:00", "alert_id": "O048", "host": "HOST-01", "action": "isolate_host", "approved": false, "mode": "non-interactive (auto-deny)", "result": "not isolated"}
