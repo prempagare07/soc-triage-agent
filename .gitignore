@@ -2,3 +2,17 @@
 __pycache__/
 .pytest_cache/
 outputs/*_llm.jsonl
+
+# model reply cache, rebuilt by any run
+outputs/llm_cache/
+.venv/
+.DS_Store
+
+# scratch runs from tuning; the reported results are in outputs/m2, outputs/m2_v22 and outputs/m2_openai
+outputs/m2_v2/
+outputs/m2_v21/
+outputs/m2_gemini*/
+outputs/m2_openai_smoke/
+outputs/m2_openai_check/
+outputs/prem_check.jsonl
+outputs/m2_check/

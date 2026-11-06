@@ -1,6 +1,7 @@
 """Single-call LLM baseline: alert events -> triage JSON."""
 import json, os
 from .schema import TACTICS, finalize
+from .sanitize import strip_alert
 
 SYSTEM = f"""You are a tier-1 SOC analyst triaging a Windows endpoint alert.
 You receive a list of Sysmon/Security log events (index, event_id, key fields).
@@ -15,6 +16,7 @@ Respond ONLY with a JSON object with keys verdict, tactic, evidence, analyst_not
 
 
 def classify(alert: dict, model: str = "gpt-4o-mini") -> dict:
+    alert = strip_alert(alert)
     from openai import OpenAI
     client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
     events = [{"index": i, **ev} for i, ev in enumerate(alert["events"])]
