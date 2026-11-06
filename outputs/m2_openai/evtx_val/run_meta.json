@@ -1,0 +1,21 @@
+{
+  "dataset": "evtx_val",
+  "alerts": 23,
+  "model": "gpt-4o-mini",
+  "options": {
+    "temperature": 0,
+    "provider": "openai"
+  },
+  "budget": 3,
+  "systems": [
+    "rules",
+    "single_call",
+    "fixed_workflow",
+    "agent"
+  ],
+  "git_commit": "f7e443cdeb8f330a46ed70fd65a4be995ed6cd86",
+  "input_sha256": "537a3992bd861caa12404b7492bf2591c578e1567deadea1bf6ce63e048ce71e",
+  "python": "3.13.9",
+  "finished_at": "2026-11-04T20:29:38.045504+00:00",
+  "command": "/Users/amatyakatyayan/Downloads/soc-m2/.venv/bin/python run_eval.py --provider openai --dataset evtx_val --systems agent --out outputs/m2_openai"
+}
