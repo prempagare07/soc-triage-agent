@@ -1,4 +1,15 @@
 .env
+# Local environment variants can contain API credentials.
+.env.*
+# Codex login/session state must never be part of the repository.
+.codex/
+.codex-home/
+codex-home/
+auth.json
+auth.json.*
+credentials.json
+credentials.json.*
+.venv/
 __pycache__/
 .pytest_cache/
 outputs/*_llm.jsonl
