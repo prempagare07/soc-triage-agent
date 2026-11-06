@@ -87,7 +87,7 @@ class OpenAILLM(GeminiLLM):
     (temperature 0, JSON mode, no seed). Every paid call is added to a running spend file, and the run
     stops before the total passes the cap (cached replies cost nothing)."""
     URL, KEY, PROVIDER, SEED = "https://api.openai.com/v1/chat/completions", "OPENAI_API_KEY", "openai", False
-    PRICE = {"gpt-4o-mini": (0.15, 0.60)}  # USD per million input / output tokens
+    PRICE = {"gpt-4o-mini": (0.15, 0.60), "gpt-4.1-mini": (0.40, 1.60)}  # USD per million input / output tokens
 
     def __init__(self, model="gpt-4o-mini", cache_dir="outputs/llm_cache", per_minute=200, timeout=120,
                  cap_usd=3.0, spend_file="outputs/openai_spend.json"):

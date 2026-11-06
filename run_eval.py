@@ -49,6 +49,12 @@ def main():
     ap.add_argument("--limit", type=int, help="only the first N alerts (pilot)")
     ap.add_argument("--base-url", default="http://localhost:11434")
     ap.add_argument("--out", default="outputs/m2")
+    ap.add_argument("--openai-cap-usd", type=float, default=3.0,
+                    help="local OpenAI spend stop; default preserves the existing $3 cap")
+    ap.add_argument("--openai-spend-file", default="outputs/openai_spend.json",
+                    help="OpenAI usage tracker; use a separate path to isolate this evaluation")
+    ap.add_argument("--openai-cache-dir", default="outputs/llm_cache",
+                    help="OpenAI response cache; use a separate path to isolate this evaluation")
     ap.add_argument("--verbose", action="store_true", help="print each agent step as it happens")
     ap.add_argument("--interactive", action="store_true", help="ask a person to approve isolate_host (demo only)")
     a = ap.parse_args()
@@ -62,7 +68,11 @@ def main():
         from soc.cloud_llm import GeminiLLM, OpenAILLM
         cls = GeminiLLM if a.provider == "gemini" else OpenAILLM
         a.model = a.model or cls.__init__.__defaults__[0]
-        llm = cls(a.model)
+        if a.provider == "openai":
+            llm = OpenAILLM(a.model, cache_dir=a.openai_cache_dir,
+                            cap_usd=a.openai_cap_usd, spend_file=a.openai_spend_file)
+        else:
+            llm = cls(a.model)
     else:
         a.model = a.model or "qwen2.5:7b"
         llm = OllamaLLM(a.model, a.base_url)
@@ -110,6 +120,8 @@ def main():
     git = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True).stdout.strip()
     meta = {"dataset": a.dataset, "alerts": len(alerts), "model": a.model, "options": llm.options,
             "budget": a.budget, "systems": list(results), "git_commit": git,
+            "openai_budget": ({"cap_usd": llm.cap, "spend_file": str(llm.spend_file)}
+                              if a.provider == "openai" else None),
             "input_sha256": hashlib.sha256(DATASETS[a.dataset].read_bytes()).hexdigest(),
             "python": platform.python_version(), "finished_at": datetime.now(timezone.utc).isoformat(),
             "command": " ".join([sys.executable, *sys.argv])}
