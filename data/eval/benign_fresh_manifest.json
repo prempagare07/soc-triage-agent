@@ -1,0 +1,107 @@
+{
+  "dataset": "benign_fresh",
+  "seed": 20261105,
+  "synthetic": true,
+  "alerts": [
+    {
+      "alert_id": "F001",
+      "source": "synthetic/edge_update",
+      "group": "mixed"
+    },
+    {
+      "alert_id": "F002",
+      "source": "synthetic/edge_update",
+      "group": "mixed"
+    },
+    {
+      "alert_id": "F003",
+      "source": "synthetic/zip_extract",
+      "group": "mixed"
+    },
+    {
+      "alert_id": "F004",
+      "source": "synthetic/zip_extract",
+      "group": "mixed"
+    },
+    {
+      "alert_id": "F005",
+      "source": "synthetic/pip_install",
+      "group": "mixed"
+    },
+    {
+      "alert_id": "F006",
+      "source": "synthetic/pip_install",
+      "group": "mixed"
+    },
+    {
+      "alert_id": "F007",
+      "source": "synthetic/notepadpp",
+      "group": "mixed"
+    },
+    {
+      "alert_id": "F008",
+      "source": "synthetic/notepadpp",
+      "group": "mixed"
+    },
+    {
+      "alert_id": "F009",
+      "source": "synthetic/adobe_updater_task",
+      "group": "mixed"
+    },
+    {
+      "alert_id": "F010",
+      "source": "synthetic/adobe_updater_task",
+      "group": "mixed"
+    },
+    {
+      "alert_id": "F011",
+      "source": "synthetic/helpdesk_ad_lookup",
+      "group": "mixed"
+    },
+    {
+      "alert_id": "F012",
+      "source": "synthetic/helpdesk_ad_lookup",
+      "group": "mixed"
+    },
+    {
+      "alert_id": "F013",
+      "source": "synthetic/inventory_wmic",
+      "group": "mixed"
+    },
+    {
+      "alert_id": "F014",
+      "source": "synthetic/inventory_wmic",
+      "group": "mixed"
+    },
+    {
+      "alert_id": "F015",
+      "source": "synthetic/admin_rdp",
+      "group": "mixed"
+    },
+    {
+      "alert_id": "F016",
+      "source": "synthetic/admin_rdp",
+      "group": "mixed"
+    },
+    {
+      "alert_id": "F017",
+      "source": "synthetic/firewall_rule_installer",
+      "group": "mixed"
+    },
+    {
+      "alert_id": "F018",
+      "source": "synthetic/firewall_rule_installer",
+      "group": "mixed"
+    },
+    {
+      "alert_id": "F019",
+      "source": "synthetic/procexp_admin",
+      "group": "mixed"
+    },
+    {
+      "alert_id": "F020",
+      "source": "synthetic/procexp_admin",
+      "group": "mixed"
+    }
+  ]
+}
