@@ -1,0 +1,23 @@
+{
+  "dataset": "evtx_heldout",
+  "alerts": 81,
+  "model": "gpt-4.1-mini",
+  "options": {
+    "temperature": 0,
+    "provider": "openai"
+  },
+  "budget": 4,
+  "systems": [
+    "single_call",
+    "agent_b4"
+  ],
+  "git_commit": "40be57e8cf5e34a077c80aa8e43f92ec30d71ea7",
+  "openai_budget": {
+    "cap_usd": 1.5,
+    "spend_file": "outputs/varsha_gpt41mini_spend.json"
+  },
+  "input_sha256": "aa22f6512c0732573493f47a123be234416095e0e3f684672778690f19292156",
+  "python": "3.9.12",
+  "finished_at": "2026-11-06T05:00:35.566121+00:00",
+  "command": "python run_eval.py --dataset evtx_heldout --provider openai --model gpt-4.1-mini --systems single_call,agent --budget 4 --openai-cap-usd 1.50 --openai-spend-file outputs/varsha_gpt41mini_spend.json --openai-cache-dir outputs/varsha_gpt41mini_llm_cache --out outputs/varsha_gpt41mini_full"
+}
