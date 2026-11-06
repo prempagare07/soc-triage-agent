@@ -278,11 +278,14 @@ class TriageAgent:
         crit = tools.asset_fact["criticality"] if asset_cited and tools.asset_fact else None
         severity, action, raised = decide(verdict, tactics[0], crit, uncertain)
         cited = sorted({i for c in (draft or {}).get("claims", []) for i in c.get("evidence", []) if isinstance(i, int)})
-        return {"alert_id": alert["alert_id"], "verdict": verdict, "tactic": tactics[0], "tactics": tactics,
+        record = {"alert_id": alert["alert_id"], "verdict": verdict, "tactic": tactics[0], "tactics": tactics,
                 "severity": severity, "action": action, "evidence": cited or (draft or {}).get("evidence", []),
                 "analyst_note": _note_text((draft or {}).get("note")), "uncertain": uncertain, "escalation_reason": reason,
                 "severity_raised_by_asset": raised, "claims_valid": claim_validity(draft, events, tools.asset_fact)[0] if usable else 0,
                 "claims_total": claim_validity(draft, events, tools.asset_fact)[1] if usable else 0}
+        if not usable:
+            record.update(status="failed", error=reason or "No usable agent submission")
+        return record
 
 
 def _note_text(note):

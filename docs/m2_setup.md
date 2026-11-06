@@ -59,6 +59,38 @@ python scripts/show_trace.py outputs/m2_openai/evtx_heldout/traces/H006.json
 
 ## 3. Checking the baseline is reproduced
 
+### Output integrity and offline checks
+
+The runner now locks each dataset output directory against concurrent writes
+and archives previous files/traces under `<out>/<dataset>/history/` before a
+new run. Use a different `--out` for simultaneous runs. If a process is killed
+without cleanup, its `.run.lock` may remain; confirm the original process has
+stopped before manually removing that exact lock file.
+
+Saved systems are included in a comparison only when their per-system
+`*.meta.json` sidecars match the selected input, context, manifest, model,
+provider/options, base URL, tool budget, interaction mode and local code/
+knowledge hashes, and the prediction bytes match their recorded SHA256.
+Legacy results without these sidecars remain preserved but are excluded
+from new combined reports. Use separate folders for different budgets/models.
+This checks recorded local settings; it does not prove an unchanged remote
+model snapshot or make model generation deterministic.
+
+Rules-only checks do not initialize Ollama or require a hosted-model key:
+
+```bash
+python run_eval.py --dataset dev --systems rules --out outputs/m2_integrity_smoke
+```
+
+Parse failures, explicit failures and missing predictions count as incorrect
+in all-alert accuracy. Failures are listed separately from completed benign
+predictions or under-escalations. A safe fallback action is not a successful
+classification. Zero-miss bounds are shown only if no tested attacks were
+missed and none failed classification. The report shows actual recorded
+model options rather than assuming all providers use a seed. Reported token
+totals may include cached-call usage; they are not fresh-usage or billing
+measurements. Existing historical reports have not been rewritten.
+
 Our single-call baseline sends exactly Prem's prompt and settings. To confirm on your machine, run his
 original script next to ours on the same model and compare the two outputs alert by alert:
 

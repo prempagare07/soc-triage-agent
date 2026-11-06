@@ -1,0 +1,37 @@
+{
+  "configuration": {
+    "dataset": "dev",
+    "input_sha256": "f4fe76b73de02ad87be2b03023a4ca4c48d68f911d1edc192387d8672dd88672",
+    "selected_alerts_sha256": "3fc6853fe084a4c3f033569f729ccd42a45f1448c0d7b3f90a81333a0fe7c460",
+    "context_sha256": "60e288d585682a25ff31137c1cda2f35389191b595a64ff3fedd540637d827c2",
+    "manifest_sha256": "33ef5e0d067f7f6dec1eabaffded41824c87b830b1e3562e03ed91e3f137cad7",
+    "provider": null,
+    "model": null,
+    "options": {},
+    "base_url": null,
+    "budget": 3,
+    "interactive": false,
+    "code_sha256": {
+      "run_eval.py": "4717bafb577857fff1614489b942f3e504c22f2498cd9788891f64b20c6513d0",
+      "soc/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "soc/agent.py": "42ccc0bbf8a29fc9d95ed26f7a43135635a11f09b23f45201b58a0444d3e7a9b",
+      "soc/baselines.py": "b00ce01c1db13a17b3c0e9b9e1d632ad2f60f3b40ee14eddca1e0d74780b1cfb",
+      "soc/cloud_llm.py": "b51288da7a9009f8ecdbc2cfcce62234cd0efa24632e190ac1074ab14ec94485",
+      "soc/eval_metrics.py": "9b5dd1aadc1e0f84f758b0a30c498b3fb1660d73bdaeeb6bbfd4f0a652e3a1d2",
+      "soc/human_gate.py": "31c7d48f5e0921ada566fa2aeb4a72727cab688c6bada2efb434576a357b9af9",
+      "soc/llm.py": "3b2056c25583349d7143455eee36c48576898a60da4b5cc889e310bdc7134ac4",
+      "soc/local_llm.py": "b898538210b32e325a4c1089e68e99b080e88cb3ee5dc630f53fcc6e8f3d05a7",
+      "soc/rules.py": "15aac75cfa18488d30fa102bd06e5ae093ccedc9050db929444b9166d4fd4783",
+      "soc/run_artifacts.py": "90851506fed716c8de3de6b8bf524f54289b1c4584659c4fa3759f4f5017830c",
+      "soc/sanitize.py": "0f30a272810222e4b3ef62b0f4aa252c51bbd0fa68eae8e6b9ac6d0e5d3f51d1",
+      "soc/schema.py": "a9de17a0dbfa67e1fe5f16896c6ba66de0888e6a30f99bf7adf8a6733df528f5",
+      "soc/tools.py": "66561800dfbd31d5491d83d6e646a9755098b8bcc48feb299626706bcbf375c9",
+      "soc/verifier.py": "e1cee9d65a7d70cd507571c2d9a0c0d3a769c3c8423d4a0aa0933f4755e81bce",
+      "soc/knowledge/asset_inventory.json": "1a3f4b98a4760739de5c5e1471b57dfbbe041dbce54a7b56c32fd793947669b1",
+      "soc/knowledge/attack_v18_1.json": "e0fa268bd7275317c6b4b8f73bc538c3364f9e16209cea4a51d6b3c0628bdbce",
+      "soc/knowledge/ioc_list.json": "b3828fa842207fdc921684459342bb328800174373f1ee904534482431fb49d5"
+    }
+  },
+  "signature": "a8f636e9213241b76a834b51551d024bb167b3603b80c24113cf5eb9b0265c0e",
+  "output_sha256": "be7caa18bba9c22fd94c61cb9b83ced71f797b8fb5ebf8526805f8b039bd863e"
+}

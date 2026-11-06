@@ -21,18 +21,23 @@ def mcnemar(a_only, b_only):
 
 def score(alerts, records):
     by_id = {r["alert_id"]: r for r in records}
+    if len(by_id) != len(records) or len({a["alert_id"] for a in alerts}) != len(alerts):
+        raise ValueError("Duplicate alert IDs make evaluation ambiguous")
     rows = []
     for a in alerts:
-        r = by_id[a["alert_id"]]
+        r = by_id.get(a["alert_id"], {"status": "failed", "error": "Missing prediction"})
+        failed = bool(r.get("parse_failure") or r.get("status") == "failed")
+        predicted = "FAILED" if failed else r["tactic"]
         true_t, true_v = a["label_tactic"], a["label_verdict"]
         policy = ACTION[SEVERITY[true_t]]
-        ranked = r.get("tactics") or [r["tactic"]]
-        rows.append({"alert_id": a["alert_id"], "true_tactic": true_t, "pred_tactic": r["tactic"],
-                     "tactic_ok": r["tactic"] == true_t, "top2_ok": true_t in ranked[:2],
-                     "verdict_ok": r["verdict"] == true_v,
-                     "missed": true_v == "malicious" and r["verdict"] == "benign",
-                     "false_pos": true_v == "benign" and r["verdict"] == "malicious",
-                     "under": RANK[r["action"]] < RANK[policy], "action_ok": r["action"] == policy,
+        ranked = r.get("tactics") or [predicted]
+        rows.append({"alert_id": a["alert_id"], "true_tactic": true_t, "pred_tactic": predicted,
+                     "failed": failed,
+                     "tactic_ok": not failed and predicted == true_t, "top2_ok": not failed and true_t in ranked[:2],
+                     "verdict_ok": not failed and r["verdict"] == true_v,
+                     "missed": not failed and true_v == "malicious" and r["verdict"] == "benign",
+                     "false_pos": not failed and true_v == "benign" and r["verdict"] == "malicious",
+                     "under": not failed and RANK[r["action"]] < RANK[policy], "action_ok": not failed and r["action"] == policy,
                      "uncertain": bool(r.get("uncertain")), "parse_failure": bool(r.get("parse_failure")),
                      "record": r})
     return rows
@@ -72,6 +77,8 @@ def summary(rows):
         "tactic": sum(r["tactic_ok"] for r in rows), "top2": sum(r["top2_ok"] for r in rows),
         "verdict": sum(r["verdict_ok"] for r in rows),
         "missed": [r["alert_id"] for r in rows if r["missed"]],
+        "failed": [r["alert_id"] for r in rows if r["failed"]],
+        "failed_attacks": [r["alert_id"] for r in attacks if r["failed"]],
         "under": [r["alert_id"] for r in rows if r["under"]],
         "false_pos": [r["alert_id"] for r in rows if r["false_pos"]],
         "benign": sum(r["true_tactic"] == "Benign" for r in rows),
@@ -96,6 +103,8 @@ def pct(x, n):
 
 
 def report(dataset, results, alerts):
+    if not results:
+        raise ValueError("No systems to evaluate")
     scored = {name: score(alerts, recs) for name, recs in results.items()}
     sums = {name: summary(rows) for name, rows in scored.items()}
     names = list(results)
@@ -109,6 +118,7 @@ def report(dataset, results, alerts):
     row("Tactic top-2", lambda s: pct(s["top2"], s["n"]))
     row(f"Macro-F1 (tactics with n>=5)", lambda s: f"{s['macro_f1']:.2f} ({s['macro_f1_tactics']} tactics)" if s["macro_f1"] is not None else "n/a")
     row("Verdict accuracy", lambda s: pct(s["verdict"], s["n"]))
+    row("Failed classifications (counted incorrect)", lambda s: pct(len(s["failed"]), s["n"]))
     row("Missed attacks", lambda s: f"{len(s['missed'])}" + (f" ({', '.join(s['missed'][:8])}{'...' if len(s['missed']) > 8 else ''})" if s["missed"] else ""))
     if sums[names[0]]["benign"]:
         row("False positives (benign called malicious)", lambda s: f"{len(s['false_pos'])}/{s['benign']}"
@@ -124,12 +134,19 @@ def report(dataset, results, alerts):
     row("Budget exhausted", lambda s: str(s["budget_exhausted"]))
     row("Claim-level evidence validity", lambda s: pct(s["claims_valid"], s["claims_total"]) if s["claims_total"] else "n/a")
     row("Latency p50 / p95 (s per alert)", lambda s: f"{s['p50_s']:.1f} / {s['p95_s']:.1f}" if s["p50_s"] is not None else "n/a")
-    row("Tokens (total, uncached runs)", lambda s: str(s["tokens"]))
-    n_att = sums[names[0]]["attacks"]
-    lines += ["", f"Zero-miss 95% upper bound at {n_att} attacks: {zero_miss_bound(n_att):.1%}" if n_att else ""]
+    row("Tokens (reported; may include cached calls)", lambda s: str(s["tokens"]))
+    row("Zero-miss 95% upper bound (attack denominator)",
+        lambda s: f"{zero_miss_bound(s['attacks']):.1%} (N={s['attacks']})"
+        if s["attacks"] and not s["missed"] and not s["failed_attacks"] else "n/a")
+    lines += ["", "Accuracy denominators include all labelled alerts; missing/failed/parse-failure predictions count as incorrect. "
+              "Misses and under-escalations describe completed predictions; failures are listed separately. "
+              "Zero-miss bounds apply only with zero misses and no failed attack classifications, assuming independent Bernoulli trials."]
+    for name, s in sums.items():
+        if s["failed"]:
+            lines.append(f"Failed IDs ({name}): {', '.join(s['failed'])}.")
     per_alert = {n: s["tokens"] / s["n"] for n, s in sums.items() if s["n"]}
     if per_alert.get("single_call") and len(per_alert) > 1:
-        lines += ["", "Tokens per alert relative to the single call: "
+        lines += ["", "Reported tokens per alert relative to the single call (cache use not separated): "
                   + ", ".join(f"{n} {v / per_alert['single_call']:.1f}x" for n, v in per_alert.items() if v)]
 
     if "agent" in scored:
@@ -157,6 +174,8 @@ def report(dataset, results, alerts):
 def cohen_kappa(a, b):
     """Agreement between two raters beyond chance, over the same items."""
     n = len(a)
+    if n != len(b):
+        raise ValueError("Raters must label the same number of items")
     if not n:
         return None
     seen = sum(x == y for x, y in zip(a, b)) / n
