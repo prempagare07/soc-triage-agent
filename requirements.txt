@@ -1,4 +1,5 @@
 openai>=1.40,<2
 pytest>=8
-# only needed to rebuild examples/alerts.jsonl from raw .evtx files:
+# only needed to rebuild datasets from the raw corpora:
 python-evtx>=0.8
+pyyaml>=6
