@@ -1,0 +1,22 @@
+{
+  "dataset": "dev",
+  "alerts": 28,
+  "model": "qwen2.5:7b",
+  "options": {
+    "temperature": 0,
+    "seed": 0,
+    "num_ctx": 16384
+  },
+  "budget": 8,
+  "systems": [
+    "rules",
+    "single_call",
+    "fixed_workflow",
+    "agent"
+  ],
+  "git_commit": "f7e443cdeb8f330a46ed70fd65a4be995ed6cd86",
+  "input_sha256": "f4fe76b73de02ad87be2b03023a4ca4c48d68f911d1edc192387d8672dd88672",
+  "python": "3.13.9",
+  "finished_at": "2026-11-04T00:26:14.063160+00:00",
+  "command": "/Users/amatyakatyayan/Downloads/soc-m2/.venv/bin/python run_eval.py --dataset dev --systems fixed_workflow,agent"
+}
