@@ -1,0 +1,16 @@
+{"time": "2026-11-04T17:21:26.930487+00:00", "alert_id": "A003", "host": "WIN-LAB", "action": "isolate_host", "approved": false, "mode": "non-interactive (auto-deny)", "result": "not isolated"}
+{"time": "2026-11-04T17:22:15.154557+00:00", "alert_id": "A004", "host": "WIN-LAB", "action": "isolate_host", "approved": false, "mode": "non-interactive (auto-deny)", "result": "not isolated"}
+{"time": "2026-11-04T17:25:18.166884+00:00", "alert_id": "A008", "host": "WIN-LAB", "action": "isolate_host", "approved": false, "mode": "non-interactive (auto-deny)", "result": "not isolated"}
+{"time": "2026-11-04T17:25:57.434595+00:00", "alert_id": "A009", "host": "WIN-LAB", "action": "isolate_host", "approved": false, "mode": "non-interactive (auto-deny)", "result": "not isolated"}
+{"time": "2026-11-04T17:27:43.215035+00:00", "alert_id": "A012", "host": "WIN-LAB", "action": "isolate_host", "approved": false, "mode": "non-interactive (auto-deny)", "result": "not isolated"}
+{"time": "2026-11-04T17:33:16.252818+00:00", "alert_id": "A019", "host": "WIN-LAB", "action": "isolate_host", "approved": false, "mode": "non-interactive (auto-deny)", "result": "not isolated"}
+{"time": "2026-11-04T17:38:50.854092+00:00", "alert_id": "A020", "host": "WIN-LAB", "action": "isolate_host", "approved": false, "mode": "non-interactive (auto-deny)", "result": "not isolated"}
+{"time": "2026-11-04T17:40:35.012402+00:00", "alert_id": "A021", "host": "WIN-LAB", "action": "isolate_host", "approved": false, "mode": "non-interactive (auto-deny)", "result": "not isolated"}
+{"time": "2026-11-04T17:42:28.916416+00:00", "alert_id": "A022", "host": "WIN-LAB", "action": "isolate_host", "approved": false, "mode": "non-interactive (auto-deny)", "result": "not isolated"}
+{"time": "2026-11-04T17:44:31.586517+00:00", "alert_id": "A023", "host": "WIN-LAB", "action": "isolate_host", "approved": false, "mode": "non-interactive (auto-deny)", "result": "not isolated"}
+{"time": "2026-11-04T17:46:25.855951+00:00", "alert_id": "A024", "host": "WIN-LAB", "action": "isolate_host", "approved": false, "mode": "non-interactive (auto-deny)", "result": "not isolated"}
+{"time": "2026-11-04T21:08:13.176984+00:00", "alert_id": "A006", "host": "WIN-LAB", "action": "isolate_host", "approved": false, "mode": "non-interactive (auto-deny)", "result": "not isolated"}
+{"time": "2026-11-04T21:10:44.479359+00:00", "alert_id": "A008", "host": "WIN-LAB", "action": "isolate_host", "approved": false, "mode": "non-interactive (auto-deny)", "result": "not isolated"}
+{"time": "2026-11-04T21:11:51.853667+00:00", "alert_id": "A009", "host": "WIN-LAB", "action": "isolate_host", "approved": false, "mode": "non-interactive (auto-deny)", "result": "not isolated"}
+{"time": "2026-11-04T21:19:10.922748+00:00", "alert_id": "A017", "host": "WIN-LAB", "action": "isolate_host", "approved": false, "mode": "non-interactive (auto-deny)", "result": "not isolated"}
+{"time": "2026-11-04T21:24:51.798462+00:00", "alert_id": "A022", "host": "WIN-LAB", "action": "isolate_host", "approved": false, "mode": "non-interactive (auto-deny)", "result": "not isolated"}

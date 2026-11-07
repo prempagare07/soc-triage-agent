@@ -74,3 +74,18 @@ Rule baseline: 57% tactic accuracy and 5 missed attacks on the 28-alert set, Dis
 (BloodHound, PsLoggedOn) and PowerShell-based lateral movement produce no keyword hits.
 Both baselines see only the events in the alert; no host context, no threat-intel lookup, no
 ability to pull more logs, and the note is not verified against the cited evidence.
+
+## Milestone 2: agent and evaluation
+
+The agent runs the standard enrichment (host logs, ATT&CK and IOC lookups, asset context), makes a quick
+decision in the format above, then checks it: it cites and quotes the events behind each claim, can call
+up to 3 more tools, and must pass a blocking verifier. Severity and action come from the same policy table,
+and the only state-changing step, a mocked `isolate_host`, needs a person's approval.
+
+Setup, commands and the reproduction check are in [`docs/m2_setup.md`](docs/m2_setup.md). Short version:
+
+```bash
+ollama pull qwen2.5:7b                                   # free local model
+python run_eval.py --dataset dev                         # rules, single call, fixed workflow, agent
+python run_eval.py --provider openai --dataset dev --out outputs/m2_openai   # gpt-4o-mini, needs OPENAI_API_KEY
+```
